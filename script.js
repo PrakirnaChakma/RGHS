@@ -84,7 +84,6 @@ draw();
       card.classList.toggle("hidden");
     });
   });
-
  
   document.querySelectorAll(".toggle-info").forEach(button => {
     button.addEventListener("click", () => {
@@ -95,3 +94,80 @@ draw();
     });
   });
 
+// ========== HAMBURGER MENU FUNCTIONALITY ==========
+
+
+// Hamburger menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const nav = document.querySelector('nav');
+  const navLinks = document.querySelector('.nav-links');
+  
+  // Create and add hamburger button
+  function createHamburgerMenu() {
+    // Check if hamburger already exists
+    let hamburger = document.querySelector('.hamburger');
+    
+    if (!hamburger && window.innerWidth <= 768) {
+      hamburger = document.createElement('button');
+      hamburger.className = 'hamburger';
+      hamburger.innerHTML = '☰';
+      hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+      
+      // Insert hamburger button in nav
+      const modeToggle = document.getElementById('mode-toggle');
+      nav.insertBefore(hamburger, modeToggle);
+      
+      // Add click event to hamburger
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+        hamburger.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
+      });
+    }
+  }
+  
+  // Remove hamburger menu on larger screens
+  function removeHamburgerMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+      hamburger.remove();
+    }
+    navLinks.classList.remove('active');
+  }
+  
+  // Handle window resize
+  function handleResize() {
+    if (window.innerWidth <= 768) {
+      createHamburgerMenu();
+    } else {
+      removeHamburgerMenu();
+    }
+  }
+  
+  // Initialize
+  handleResize();
+  
+  // Listen for window resize
+  window.addEventListener('resize', handleResize);
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger && !nav.contains(e.target)) {
+      navLinks.classList.remove('active');
+      hamburger.innerHTML = '☰';
+    }
+  });
+  
+  // Close menu when clicking nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+      const hamburger = document.querySelector('.hamburger');
+      if (hamburger && window.innerWidth <= 768) {
+        navLinks.classList.remove('active');
+        hamburger.innerHTML = '☰';
+      }
+    });
+  });
+  
+});
