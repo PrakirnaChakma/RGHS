@@ -26,16 +26,19 @@ canvas#dotmatrix {
   z-index: -1;
 }
 
+
+
 header {
   position: sticky;
   top: 0;
   background-color: var(--nav-bg);
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
   backdrop-filter: blur(8px);
+  min-height: auto;
 }
 
 nav {
@@ -171,6 +174,9 @@ body.light .contact-card {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
+body.light .contact-card .extra-info {
+  color: #111111;
+}
 
 .contact-card:hover {
   transform: translateY(-6px);
@@ -250,6 +256,8 @@ body.light .notice-card {
   background-color: #f9f9f9;
   border-left-color: #6a0dad;
 }
+
+
 
 .notice-card h3 {
   margin-top: 0;
@@ -336,6 +344,10 @@ body.light .resource-card {
 .notice-card .full-desc {
   margin-top: 1rem;
   color: #ccc;
+}
+
+body.light .notice-card .full-desc {
+  color: #333333;
 }
 
 .notice-card .full-desc.hidden {
@@ -520,3 +532,78 @@ body.light .notice-card {
   margin: 3rem 0;
 }
 
+
+/* ========== MOBILE RESPONSIVE FIXES ========== */
+/* Add this section at the end of your style.css file */
+
+/* Mobile-first responsive design */
+/* Hamburger Menu Version - Replace the mobile section in your CSS */
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem 1rem;
+    min-height: auto;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  /* Hide nav links by default on mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+    border-top: 1px solid var(--accent);
+    z-index: 100;
+  }
+
+  /* Show nav links when active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Style for hamburger button */
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.2rem;
+  }
+
+  /* Keep the rest of your mobile styles */
+  .intro {
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-card .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .contacts h2, .notices h2, .resources h2 {
+    font-size: 2rem;
+  }
+}
