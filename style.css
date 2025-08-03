@@ -607,3 +607,367 @@ body.light .notice-card {
     font-size: 2rem;
   }
 }
+
+/* ========== STARTUP INFO MODAL STYLES ========== */
+/* Add this to your style.css file */
+
+/* Startup Button in Intro Section */
+.startup-btn {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.startup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+  background: linear-gradient(135deg, #a855f7, var(--accent));
+}
+
+.startup-btn i {
+  font-size: 1.2rem;
+}
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Content Container */
+.modal-content {
+  background-color: var(--bg-color);
+  margin: 2% auto;
+  padding: 0;
+  border: 2px solid var(--accent);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from { 
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 18px 18px 0 0;
+  text-align: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Close Button */
+.close-modal {
+  color: white;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  transition: color 0.2s;
+}
+
+.close-modal:hover {
+  color: #ffcccc;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2rem;
+  color: var(--text-color);
+}
+
+/* Info Sections */
+.info-section {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+
+.info-section h3 {
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-section p, .info-section li {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.info-section ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.info-section li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+/* Highlight Grid */
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.highlight-card {
+  background: rgba(138, 43, 226, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  transition: transform 0.2s;
+}
+
+.highlight-card:hover {
+  transform: translateY(-3px);
+}
+
+.highlight-card i {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.highlight-card h4 {
+  margin: 0.5rem 0;
+  color: var(--accent);
+}
+
+.highlight-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Image Gallery */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* Updates */
+.update-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(138, 43, 226, 0.05);
+  border-radius: 8px;
+}
+
+.update-date {
+  background: var(--accent);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.update-item p {
+  margin: 0;
+  flex: 1;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(168, 85, 247, 0.1));
+  border-left: 4px solid var(--accent);
+  text-align: center;
+}
+
+.cta-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-btn:hover {
+  background: #a855f7;
+  transform: translateY(-2px);
+}
+
+/* Light Mode Adjustments */
+body.light .modal-content {
+  background-color: #ffffff;
+  border-color: #6a0dad;
+}
+
+body.light .info-section {
+  background: rgba(106, 13, 173, 0.05);
+}
+
+body.light .highlight-card {
+  background: rgba(106, 13, 173, 0.08);
+  border-color: rgba(106, 13, 173, 0.2);
+}
+
+body.light .update-item {
+  background: rgba(106, 13, 173, 0.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 1% auto;
+    max-height: 95vh;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .info-section {
+    padding: 1rem;
+  }
+  
+  .highlight-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .startup-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .update-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .update-date {
+    align-self: flex-start;
+  }
+}
+
+/* ========== RESOURCE CARDS LIGHT MODE FIX ========== */
+/* Add this to your style.css file */
+
+/* Fix for the bottom section resource cards in light mode */
+body.light .section {
+  background-color: rgba(240, 240, 245, 0.8); /* Light background instead of dark */
+}
+
+/* Fix for individual resource cards in light mode */
+body.light .resource-card {
+  background: #ffffff; /* Pure white background */
+  border: 1px solid rgba(106, 13, 173, 0.15); /* Light purple border */
+  color: #333333; /* Dark text */
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.1); /* Light purple shadow */
+}
+
+body.light .resource-card:hover {
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.2); /* Slightly stronger shadow on hover */
+}
+
+/* Fix for resource card icons in light mode */
+body.light .resource-card .icon {
+  color: #6a0dad; /* Purple color for icons */
+}
+
+/* Fix for resource card headings in light mode */
+body.light .resource-card h3 {
+  color: #333333; /* Dark heading text */
+}
+
+/* Fix for resource card text in light mode */
+body.light .resource-card p {
+  color: #555555; /* Dark gray text */
+}
+
+/* Fix for resource card buttons in light mode */
+body.light .resource-card .button {
+  background: #6a0dad; /* Purple background */
+  color: white; /* White text */
+}
+
+body.light .resource-card .button:hover {
+  background: #5a0b9a; /* Darker purple on hover */
+}
