@@ -171,3 +171,140 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
 });
+
+// ========== STARTUP INFO MODAL FUNCTIONALITY ==========
+// Add this to your script.js file
+
+// Startup Info Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const startupBtn = document.getElementById('startup-info-btn');
+  const modal = document.getElementById('startup-modal');
+  const closeBtn = document.querySelector('.close-modal');
+  const contactCtaBtn = document.getElementById('contact-cta-btn');
+  
+  // Function to properly close modal and restore scrolling
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    // Force page refresh of scroll behavior
+    setTimeout(() => {
+      window.scrollTo(window.scrollX, window.scrollY);
+    }, 50);
+  }
+  
+  // Function to properly open modal
+  function openModal() {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // Open modal when button is clicked
+  if (startupBtn) {
+    startupBtn.addEventListener('click', function() {
+      openModal();
+    });
+  }
+  
+  // Close modal when X is clicked
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      closeModal();
+    });
+  }
+  
+  // Handle Contact Us Now button
+  if (contactCtaBtn) {
+    contactCtaBtn.addEventListener('click', function() {
+      closeModal();
+      
+      // Wait for modal to close, then scroll to contacts
+      setTimeout(() => {
+        const contactsSection = document.getElementById('contacts');
+        if (contactsSection) {
+          contactsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    });
+  }
+  
+  // Close modal when clicking outside of it
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+  
+  // Image gallery click to enlarge (optional feature)
+  document.querySelectorAll('.gallery-img').forEach(img => {
+    img.addEventListener('click', function() {
+      // Create full-screen image viewer
+      const viewer = document.createElement('div');
+      viewer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        cursor: pointer;
+      `;
+      
+      const enlargedImg = document.createElement('img');
+      enlargedImg.src = this.src;
+      enlargedImg.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+      `;
+      
+      viewer.appendChild(enlargedImg);
+      document.body.appendChild(viewer);
+      
+      // Close on click
+      viewer.addEventListener('click', function() {
+        document.body.removeChild(viewer);
+      });
+    });
+  });
+  
+  // Smooth scroll animation for internal links in modal
+  document.querySelectorAll('.modal a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        // Close modal first
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Then scroll to target
+        setTimeout(() => {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 300);
+      }
+    });
+  });
+  
+});
