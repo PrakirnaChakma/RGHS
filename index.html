@@ -1,567 +1,702 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- ================================ HEAD SECTION ================================ -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Contact Hub</title>
-  <meta name="author" content="Prakirna">
-  <link rel="shortcut icon" href="images/Website/purple-ribbon.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css" />
+    <!-- Basic Meta Tags -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Student Contact Hub</title>
+    <meta content="Prakirna" name="author"/>
+    <meta content="RGHS Refiners - contact directory, notices, and academic resources for juniors from SSC-25 (HSC-27) alumni." name="description"/>
+    
+    <!-- Favicon -->
+    <link href="images/Website/purple-ribbon.png" rel="shortcut icon" type="image/x-icon"/>
+    
+    <!-- External Stylesheets -->
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet">
+    <link href="style.css" rel="stylesheet"/>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="True" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 </head>
+
+<!-- ================================ BODY SECTION ================================ -->
 <body>
-  <canvas id="dotmatrix"></canvas>
-  <header>
-    <nav> 
-      <div class="logo">RGHS Refiners</div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#contacts">Contacts</a></li>
-        <li><a href="#notices">Notices</a></li>
-        <li><a href="#resources">Resources</a></li>
-
-      </ul>
-      <button id="mode-toggle">🌙</button>
-    </nav>
-  </header>
-  <main>
-  <section class="intro">
-      <h1>Welcome to RGHS Refiners</h1>
-      <p>This platform helps juniors reach out to us for academic support, access helpful resources, and stay updated with notices.</p>
-       <button id="startup-info-btn" class="startup-btn">
-    <i class="fas fa-info-circle"></i> Learn More About Us
-  </button>
-</section>
-  </section>
-  <section class="contacts-wrapper">
-    <div class="section-divider"></div>
+    <!-- Background Animation Canvas -->
+    <canvas id="dotmatrix"></canvas>
     
-  <div class="contacts" id="contacts">
-    <h2>Contact Directory</h2>
-  </div>
-  <h2></h2>
- <div class="contact-grid">
-  <!-- Contact cards go here -->
-  <!-- Add more contact cards by copying this block -->
-  <div class="contact-card">
-     <img class="avatar" src="images/People/Prakirna_Chakma.webp" alt="Prakirna Chakma's Photo" />
-     <h3>Prakirna Chakma</h3>
-     <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-     <p><b>Chemistry, Math(HM+GM)</b><br>"যেকোনো বিষয়ে যথাসম্ভব তোমাদের সাথে আছি।"</p>
+    <!-- ================================ HEADER SECTION ================================ -->
+    <header>
+        <nav>
+            <!-- Logo -->
+            <div class="logo">RGHS Refiners</div>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+                <li><a href="#notices">Notices</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            
+            <!-- Dark/Light Mode Toggle -->
+            <button id="mode-toggle">🌙</button>
+        </nav>
+    </header>
 
-     <!-- Basic visible contact icons -->
-      <div class="social-links">
-      <a href="mailto:contact.prakirna@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-      <a href="https://wa.me/8801874780729" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="https://x.com/Prakirna_Chakma" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://discord.com/users/dontknowwhattonamehelpbro" target="_blank"><i class="fab fa-discord"></i></a>
-      </div>
-    <!-- Hidden extra details -->
-     <div class="extra-info hidden">
-      <strong>Most Available on:</strong>
-       <a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fab fa-facebook"></i></a>
-       <a href="https://wa.me/8801874780729" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-       <a href="https://discord.com/users/dontknowwhattonamehelpbro" target="_blank"><i class="fab fa-discord"></i></a>
-      <p><strong>"যেকোনো বিষয়ে যথাসম্ভব তোমাদের সাথে আছি।"</strong></p>
-      <p><strong>Subjects:</strong> All <br> <strong>Best at:</strong> Chemistry, General Math, Higher Math, টানবল/কপিকল (Physics)<br></p>
-      <p><strong>Contacts:</strong></p>
-      <ul>
-       <li><a href="mailto:contact.prakirna@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> contact.prakirna@gmail.com</a></li>
-       <li><a href="https://wa.me/8801874780729" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01874780729</a></li>
-       <li><a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fa-brands fa-facebook"></i> Prakirna Chakma</a></li>
-       <li><a href="https://discord.com/users/dontknowwhattonamehelpbro" target="_blank"><i class="fa-brands fa-discord"></i> dontknowwhattonamehelpbro</a></li>
-       <li><a href="https://x.com/Prakirna_Chakma" target="_blank"><i class="fa-brands fa-x-twitter"></i> @Prakirna_Chakma</a></li>
-      </ul>
-     </div>
-   <button class="toggle-info">View More</button>
-  </div>
+    <!-- ================================ MAIN CONTENT ================================ -->
+    <main>
+        
+        <!-- ================================ INTRO SECTION ================================ -->
+        <section class="intro">
+            <h1>Welcome to RGHS Refiners</h1>
+            <p>This platform helps juniors reach out to us for academic support, access helpful resources, and stay updated with notices.</p>
+            
+            <!-- Learn More Button -->
+            <button class="startup-btn" id="startup-info-btn">
+                <i class="fas fa-info-circle"></i> Learn More About Us
+            </button>
+        </section>
 
-  <div class="contact-card">
-    <img class="avatar" src="images/People/Nijum_Chakma.webp" alt="Nijum Chakma's Photo" />
-    <h3>Nijum Chakma</h3>
-    <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-    <p><b>Math(GM+HM), English, BGS</b><br>"Be your own light in darkness, pain, confusion and sorrow"</p>
-    
-    <!-- Basic visible contact icons -->
-   <div class="social-links">
-      <a href="mailto:nijememperor@gmail.com " target="_blank"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-      <a href="https://wa.me/8801860678517" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="https://discord.com/users/npcsdn" target="_blank"><i class="fab fa-discord"></i></a>
-   </div>
-    <!-- Hidden extra details -->
-   <div class="extra-info hidden">
-     <strong>Most Available on:</strong>
-       <a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fab fa-facebook"></i></a>
-     <p><strong>"Be your own light in darkness, pain, confusion and sorrow"</strong></p> 
-     <p><strong>Subjects:</strong> All <br><strong>Best at:</strong> General Math, Higher Math, English, BGS<br></p>
-     <p><strong>Contacts:</strong></p>
-     <ul>
-      <li><a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fa-brands fa-facebook"></i> Nijum Wangza</a></li>
-      <li><a href="mailto:nijememperor@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> nijememperor@gmail.com</a></li>
-      <li><a href="https://wa.me/8801860678517" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01860678517</a></li>
-      <li><a href="https://discord.com/users/npcsdn" target="_blank"><i class="fa-brands fa-discord"></i> npcsdn</a></li>
-    </ul>
-   </div>
-   <button class="toggle-info">View More</button>
-  </div>
+        <!-- ================================ CONTACTS SECTION ================================ -->
+        <section class="contacts-wrapper">
+            <div class="section-divider"></div>
+            
+            <div class="contacts" id="contacts">
+                <h2>Contact Directory</h2>
+            </div>
+            
+            <h2></h2>
+            
+            <!-- Contact Cards Grid -->
+            <div class="contact-grid">
+                
+                <!-- ========== Contact Card 1: Prakirna Chakma ========== -->
+                <div class="contact-card">
+                    <img alt="Prakirna Chakma's Photo" class="avatar" src="images/People/Prakirna_Chakma.webp"/>
+                    <h3>Prakirna Chakma</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Chemistry, Math(HM+GM)</b><br/>"যেকোনো বিষয়ে যথাসম্ভব তোমাদের সাথে আছি।"</p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="mailto:contact.prakirna@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="https://wa.me/8801874780729" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://x.com/Prakirna_Chakma" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://discord.com/users/dontknowwhattonamehelpbro" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/8801874780729" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://discord.com/users/dontknowwhattonamehelpbro" target="_blank"><i class="fab fa-discord"></i></a>
+                        
+                        <p><strong>"যেকোনো বিষয়ে যথাসম্ভব তোমাদের সাথে আছি।"</strong></p>
+                        <p><strong>Subjects:</strong> All <br/> <strong>Best at:</strong> Chemistry, General Math, Higher Math, টানবল/কপিকল (Physics)<br/></p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="mailto:contact.prakirna@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> contact.prakirna@gmail.com</a></li>
+                            <li><a href="https://wa.me/8801874780729" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01874780729</a></li>
+                            <li><a href="https://facebook.com/PrakirnaChakma" target="_blank"><i class="fa-brands fa-facebook"></i> Prakirna Chakma</a></li>
+                            <li><a href="https://discord.com/users/dontknowwhattonamehelpbro" target="_blank"><i class="fa-brands fa-discord"></i> dontknowwhattonamehelpbro</a></li>
+                            <li><a href="https://x.com/Prakirna_Chakma" target="_blank"><i class="fa-brands fa-x-twitter"></i> @Prakirna_Chakma</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-  <div class="contact-card">
-   <img class="avatar" src="images/People/Showherza_Dey_Pial.webp" alt="Showherza De Pial's Photo" />
-   <h3>Showherza Dey Pial</h3>
-   <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
+                <!-- ========== Contact Card 2: Nijum Chakma ========== -->
+                <div class="contact-card">
+                    <img alt="Nijum Chakma's Photo" class="avatar" src="images/People/Nijum_Chakma.webp"/>
+                    <h3>Nijum Chakma</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Math(GM+HM), English, BGS</b><br/>"Be your own light in darkness, pain, confusion and sorrow"</p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="mailto:nijememperor@gmail.com " target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="https://wa.me/8801860678517" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://discord.com/users/npcsdn" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fab fa-facebook"></i></a>
+                        
+                        <p><strong>"Be your own light in darkness, pain, confusion and sorrow"</strong></p>
+                        <p><strong>Subjects:</strong> All <br/><strong>Best at:</strong> General Math, Higher Math, English, BGS<br/></p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://www.facebook.com/nijhum.nj.2024" target="_blank"><i class="fa-brands fa-facebook"></i> Nijum Wangza</a></li>
+                            <li><a href="mailto:nijememperor@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> nijememperor@gmail.com</a></li>
+                            <li><a href="https://wa.me/8801860678517" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01860678517</a></li>
+                            <li><a href="https://discord.com/users/npcsdn" target="_blank"><i class="fa-brands fa-discord"></i> npcsdn</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-   <!-- Basic visible contact icons -->
-   <div class="social-links">
-    <a href="https://wa.me/8801860889011" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <!-- ========== Contact Card 3: Showherza Dey Pial ========== -->
+                <div class="contact-card">
+                    <img alt="Showherza De Pial's Photo" class="avatar" src="images/People/Showherza_Dey_Pial.webp"/>
+                    <h3>Showherza Dey Pial</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small><br/></p>
+                    <p><b>Bangla, Physics, Chemistry</b><br/><small>"সৌহার্য্য পিয়াল ভাইয়া আছে যেখানে, কোনো সাবজেক্টে ভয় নাই সেখানে। let's learn"</small></p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="https://wa.me/8801860889011" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://wa.me/8801860889011" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        
+                        <p><strong><small>"সৌহার্য্য পিয়াল ভাইয়া আছে যেখানে, কোনো সাবজেক্টে ভয় নাই সেখানে। let's learn"</small></strong></p>
+                        <p><strong>Subjects:</strong> All</p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://wa.me/8801860889011" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01860889011</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-   </div>
-    <!-- Hidden extra details -->
-   <div class="extra-info hidden">
-    <strong>Most Available on:</strong>
-     <a href="https://wa.me/8801860889011" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    <p><strong>Subjects:</strong> All</p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://wa.me/8801860889011" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01860889011</a></li>
-    </ul>
-  </div>
-  <button class="toggle-info">View More</button>
-  </div>
+                <!-- ========== Contact Card 4: Fahim Hossain ========== -->
+                <div class="contact-card">
+                    <img alt="Fahim Hossain's Photo" class="avatar" src="images/People/Fahim_Hossain.webp"/>
+                    <h3>Fahim Hossain</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Chemistry, Biology, Higher Math</b><br><small>"ভাই তুই Failure না, তুই চেষ্টাই করতেসোস না। আর যদি চেষ্টা করে fail করস তাহলে Success Is loading. Be patience"</small></p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="https://www.instagram.com/fah.im8520/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/8801788580208" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/8801788580208" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        
+                        <p><strong><small>"ভাই তুই Failure না, তুই চেষ্টাই করতেসোস না। আর যদি চেষ্টা করে fail করস তাহলে Success Is loading. Be patience"</small></strong></p>
+                        <p><strong>Subjects:</strong> All except Physics <br/><strong>Best at:</strong> Chemistry, Biology, Higher Math</p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fab fa-facebook"></i> Fahim Hossain</a></li>
+                            <li><a href="https://wa.me/8801788580208" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01788580208</a></li>
+                            <li><a href="https://www.instagram.com/fah.im8520/" target="_blank"><i class="fa-brands fa-instagram"></i> fah.im8520</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-  <div class="contact-card">
-  <img class="avatar" src="images/People/Fahim_Hossain.webp" alt="Fahim Hossain's Photo" />
-  <h3>Fahim Hossain</h3>
-  <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-  <p><b>Chemistry, Biology, Higher Math</b></p>
+                <!-- ========== Contact Card 5: Thasanul Haque Nowshad ========== -->
+                <div class="contact-card">
+                    <img alt="Thasanul Haque Nowshad's Photo" class="avatar" src="images/People/Thasanul_Haque_Nowshad.webp"/>
+                    <h3><small>Thasanul Haque Nowshad</small></h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="mailto:thasanhoque05@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61563783044142" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61563783044142" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="https://instagram.com/thasan_hoque/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/8801820357085" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <p><strong>Subjects:</strong> All</p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://www.facebook.com/profile.php?id=61563783044142" target="_blank"><i class="fa-brands fa-facebook"></i> Thasanul Hoque Noshu</a></li>
+                            <li><a href="https://wa.me/8801820357085" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01820357085</a></li>
+                            <li><a href="https://instagram.com/thasan_hoque/" target="_blank"><i class="fa-brands fa-instagram"></i> thasan_hoque</a></li>
+                            <li><a href="mailto:thasanhoque05@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> thasanhoque05@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-  <!-- Basic visible contact icons -->
-  <div class="social-links">
-    <a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-    <a href="https://www.instagram.com/fah.im8520/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://wa.me/8801788580208" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-  </div>
-  <!-- Hidden extra details -->
-  <div class="extra-info hidden">
-    <strong>Most Available on:</strong>
-     <a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fab fa-facebook"></i></a>
-     <a href="https://wa.me/8801788580208" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    <p><strong>Subjects:</strong> All except Physics <br><strong>Best at:</strong> Chemistry, Biology, Higher Math</p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://www.facebook.com/fahim.hossain.785722" target="_blank"><i class="fab fa-facebook"></i> Fahim Hossain</a></li>
-      <li><a href="https://wa.me/8801788580208" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01788580208</a></li>
-      <li><a href="https://www.instagram.com/fah.im8520/" target="_blank"><i class="fa-brands fa-instagram"></i> fah.im8520</a></li>
-      
-    </ul>
-  </div>
-  <button class="toggle-info">View More</button>
-  </div>
+                <!-- ========== Contact Card 6: Janit Chakma ========== -->
+                <div class="contact-card">
+                    <img alt="Janit Chakma's Photo" class="avatar" src="images/People/Janit_Chakma.webp"/>
+                    <h3>Janit Chakma</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Physics, Bangla</b><br/>"নিজের সর্বোচ্চ দিয়ে তোমাদের হেল্প করবো"</p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100091963386817" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100091963386817" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="https://www.instagram.com/janit_ch/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/8801866785232" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://www.instagram.com/janit_ch/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/8801866785232" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        
+                        <p><strong>"নিজের সর্বোচ্চ দিয়ে তোমাদের হেল্প করবো"</strong></p>
+                        <p><strong>Subjects:</strong> All <br/> <strong>Best at:</strong> Physics, Bangla</p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://www.instagram.com/janit_ch/" target="_blank"><i class="fa-brands fa-instagram"></i> janit_ch</a></li>
+                            <li><a href="https://www.instagram.com/janit.999/" target="_blank"><i class="fa-brands fa-instagram"></i> janit.999</a></li>
+                            <li><a href="https://wa.me/8801866785232" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01866785232</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100091963386817" target="_blank"><i class="fa-brands fa-facebook"></i> Janit Chakma</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-  <div class="contact-card">
-   <img class="avatar" src="images/People/Thasanul_Haque_Nowshad.webp" alt="Thasanul Haque Nowshad's Photo" />
-   <h3><small>Thasanul Haque Nowshad</small></h3>
-   <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
+                <!-- ========== Contact Card 7: Parag Roy Divya ========== -->
+                <div class="contact-card">
+                    <img alt="Parag Roy Divya's Photo" class="avatar" src="images/People/Parag_Roy_Divya.webp"/>
+                    <h3>Parag Roy Divya</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Physics, Math(HM+GM)</b><br/>"Physics, GM, HM solver"</p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="https://wa.me/8801601408822" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://wa.me/8801601408822" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        
+                        <p><strong>"Physics, GM, HM solver"</strong></p>
+                        <p><strong>Subjects:</strong> All <br/> <strong>Best at:</strong> Physics, General Math, Higher Math<br/></p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://wa.me/8801601408822" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01601408822</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-   <!-- Basic visible contact icons -->
-   <div class="social-links">
-    <a href="mailto:thasanhoque05@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=61563783044142" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=61563783044142" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-    <a href="https://instagram.com/thasan_hoque/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://wa.me/8801820357085" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-   </div>
-    <!-- Hidden extra details -->
-   <div class="extra-info hidden">
-    <p><strong>Subjects:</strong> All</p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://www.facebook.com/profile.php?id=61563783044142" target="_blank"><i class="fa-brands fa-facebook"></i> Thasanul Hoque Noshu</a></li>
-      <li><a href="https://wa.me/8801820357085" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01820357085</a></li>
-      <li><a href="https://instagram.com/thasan_hoque/" target="_blank"><i class="fa-brands fa-instagram"></i> thasan_hoque</a></li>
-      <li><a href="mailto:thasanhoque05@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> thasanhoque05@gmail.com</a></li>
+                <!-- ========== Contact Card 8: Jitu Chandra Bhowmik ========== -->
+                <div class="contact-card">
+                    <img alt="Jitu Chandra Bhowmik's Photo" class="avatar" src="images/People/Jitu_Chandra_Bhowmik.webp"/>
+                    <h3>Jitu Chandra Bhowmik</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Physics, Chemistry, Math(GM+HM)</b> <br/> "Your talent cannot make you succeed. But your unbridled hard working will make you succeed."</p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="https://www.instagram.com/jituc.b/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fab fa-facebook"></i></a>
+                        
+                        <p><strong>"Your talent cannot make you succeed. But your unbridled hard working will make you succeed."</strong></p>
+                        <p><strong>Subjects:</strong> All except English <br/> <strong>Best at:</strong> Physics, Chemistry, General Math, Higher Math</p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fab fa-facebook"></i> GS Boom</a></li>
+                            <li><a href="https://www.instagram.com/jituc.b/" target="_blank"><i class="fa-brands fa-instagram"></i> jituc.b</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-    </ul>
-  </div>
-  <button class="toggle-info">View More</button>
-  </div>
+                <!-- ========== Contact Card 9: Zubayet Hasan Tuhin ========== -->
+                <div class="contact-card">
+                    <img alt="Zubayet Hasan Tuhin's Photo" class="avatar" src="images/People/Zubayet_Hasan_Tuhin.webp"/>
+                    <h3>Zubayet Hasan Tuhin</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Chemistry, Math(GM+HM), Physics</b></p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+                        <a href="https://wa.me/8801601722705" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://wa.me/8801601722705" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fab fa-facebook"></i></a>
+                        
+                        <p><strong>Subjects:</strong> All <br/> <strong>Best at:</strong> Chemistry, General Math. Higher Math, Physics<br/></p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fab fa-facebook"></i> Zubayet Hasan Tuhin</a></li>
+                            <li><a href="https://wa.me/8801601722705" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01601722705</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
 
-  <div class="contact-card">
-   <img class="avatar" src="images/People/Janit_Chakma.webp" alt="Janit Chakma's Photo" />
-   <h3>Janit Chakma</h3>
-   <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-   <p><b>Physics, Bangla</b><br>"নিজের সর্বোচ্চ দিয়ে তোমাদের হেল্প করবো"</p>
+                <!-- ========== Contact Card 10: Pranta Saha ========== -->
+                <div class="contact-card">
+                    <img alt="Pranta Saha's Photo" class="avatar" src="images/People/Pranta_Saha.webp"/>
+                    <h3>Pranta Saha</h3>
+                    <p><small>HSC-27 [college loading],<br/>GPA-5 SSC-25 RGHS</small></p>
+                    <p><b>Physics, Math(GM+HM)</b><br/> "When you give your heart to work, even fate bows down"</p>
+                    
+                    <!-- Basic visible contact icons -->
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/_pran_ta_90/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/8801629131301" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <!-- Hidden extra details -->
+                    <div class="extra-info hidden">
+                        <strong>Most Available on:</strong>
+                        <a href="https://www.instagram.com/_pran_ta_90/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/8801629131301" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        
+                        <p><strong>Subjects:</strong> All<br/><strong>Best at:</strong> Physics, Math(GM+HM)</p>
+                        
+                        <p><strong>Contacts:</strong></p>
+                        <ul>
+                            <li><a href="https://wa.me/8801629131301" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01629131301</a></li>
+                            <li><a href="https://www.instagram.com/_pran_ta_90/" target="_blank"><i class="fa-brands fa-instagram"></i> _pran_ta_90</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-info">View More</button>
+                </div>
+                
+            </div>
+            <!-- End Contact Cards Grid -->
+        </section>
+        <!-- End Contacts Section -->
 
-   <!-- Basic visible contact icons -->
-   <div class="social-links">
-    <a href="https://www.facebook.com/profile.php?id=100091963386817" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=100091963386817" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-    <a href="https://www.instagram.com/janit_ch/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://wa.me/8801866785232" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-   </div>
-    <!-- Hidden extra details -->
-   <div class="extra-info hidden">
-    <strong>Most Available on:</strong>
-     <a href="https://www.instagram.com/janit_ch/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-     <a href="https://wa.me/8801866785232" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    <p><strong>"নিজের সর্বোচ্চ দিয়ে তোমাদের হেল্প করবো"</strong></p>
-    <p><strong>Subjects:</strong> All <br> <strong>Best at:</strong> Physics, Bangla</p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://www.instagram.com/janit_ch/" target="_blank"><i class="fa-brands fa-instagram"></i> janit_ch</a></li>
-      <li><a href="https://www.instagram.com/janit.999/" target="_blank"><i class="fa-brands fa-instagram"></i> janit.999</a></li>
-      <li><a href="https://wa.me/8801866785232" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01866785232</a></li>
-      <li><a href="https://www.facebook.com/profile.php?id=100091963386817" target="_blank"><i class="fa-brands fa-facebook"></i> Janit Chakma</a></li> 
-    </ul>
-   </div>
-  <button class="toggle-info">View More</button>
-  </div>
+        <!-- ================================ NOTICES SECTION ================================ -->
+        <section class="notices" id="notices">
+            <h2>Notices & Announcements</h2>
+            
+            <div class="notice-list">
+                
+                <!-- ========== Notice 1: Platform Launch Announcement ========== -->
+                <div class="notice-card">
+                    <h3>🎉 RGHS Refiners - একাডেমিক সাপোর্ট প্লাটফর্ম আনুষ্ঠানিক উদ্বোধন!</h3>
+                    <p class="short-desc">রাঙামাটি সরকারি উচ্চ বিদ্যালয়ের ছাত্র-ছাত্রীদের জন্য বিশেষ একাডেমিক সহায়তা প্রোগ্রাম।</p>
+                    
+                    <!-- Full Notice Content (Hidden by default) -->
+                    <div class="full-desc hidden">
+                        <p><strong>আসসালাম আলাইকুম ও শুভেচ্ছা,</strong></p>
+                        <p><strong>প্রিয় ভাই-বোনেরা,</strong></p>
+                        <p>আজ আমাদের জন্য একটি বিশেষ দিন। আমরা <strong>"RGHS Refiners"</strong> টিম হিসেবে আনুষ্ঠানিকভাবে আমাদের একাডেমিক সাপোর্ট প্লাটফর্ম চালু করছি। আমরা সকলেই রাঙামাটি সরকারি উচ্চ বিদ্যালয়ের গর্বিত ছাত্র-ছাত্রী এবং SSC-25 ব্যাচে GPA-5 অর্জন করেছি। বর্তমানে আমরা HSC-27 ব্যাচের জন্য কঠোর পরিশ্রমের সাথে প্রস্তুতি নিচ্ছি।</p>
+                        
+                        <p><strong>🎯 আমাদের মিশন:</strong></p>
+                        <p>আমাদের প্রধান লক্ষ্য হলো RGHS এর জুনিয়র ছাত্র-ছাত্রীদের একাডেমিক উন্নতিতে সহায়তা করা এবং তাদের স্বপ্ন পূরণের পথে একটি শক্তিশালী সাপোর্ট সিস্টেম গড়ে তোলা।</p>
+                        
+                        <p><strong>📚 এই প্লাটফর্মে যা পাবে:</strong></p>
+                        <ul>
+                            <li><strong>📖 স্টাডি ম্যাটেরিয়াল:</strong> প্রতিটি বিষয়ের জন্য বিশেষভাবে প্রস্তুতকৃত নোটস, গাইড এবং সামারি</li>
+                            <li><strong>📝 প্রশ্নপত্র ও সমাধান:</strong> বিগত বছরের প্রশ্ন, মডেল টেস্ট এবং বিস্তারিত সমাধান</li>
+                            <li><strong>🎯 এক্সাম প্রিপারেশন:</strong> পরীক্ষার কৌশল, টাইম ম্যানেজমেন্ট এবং প্রস্তুতির টিপস</li>
+                            <li><strong>🤝 ব্যক্তিগত গাইডেন্স:</strong> সরাসরি যোগাযোগের মাধ্যমে একান্ত পরামর্শ</li>
+                            <li><strong>📊 অনলাইন এক্সাম:</strong> অনলাইনে মডেল টেস্টের ব্যবস্থা</li>
+                            <li><strong>💡 ক্যারিয়ার কাউন্সেলিং:</strong> ভবিষ্যৎ পরিকল্পনা এবং বিষয় নির্বাচনে সহায়তা</li>
+                            <li><strong>🏆 মোটিভেশন ও মেন্টরিং:</strong> পড়াশোনায় অনুপ্রেরণা এবং মানসিক সাপোর্ট</li>
+                        </ul>
+                        
+                        <p><strong>👥 আমাদের টিম সম্পর্কে:</strong></p>
+                        <p>RGHS Refiners টিমের প্রতিটি সদস্য বিভিন্ন বিষয়ে বিশেষ দক্ষতা রাখে। আমাদের মধ্যে রয়েছে বিজ্ঞান, মানবিক এবং ব্যবসায় শিক্ষা শাখার মেধাবী ছাত্র-ছাত্রী। আমরা শুধু একাডেমিক সাফল্যই নয়, বরং সার্বিক ব্যক্তিত্ব বিকাশে তোমাদের সহায়তা করতে প্রতিশ্রুতিবদ্ধ।</p>
+                        
+                        <p><strong>⏰ বর্তমান অবস্থা ও ভবিষ্যৎ পরিকল্পনা:</strong></p>
+                        <p>এই মুহূর্তে আমাদের প্লাটফর্ম বেসিক সেটআপ সম্পন্ন হয়েছে। আগামী কয়েক সপ্তাহের মধ্যে আমরা যোগ করব:</p>
+                        <ul>
+                            <li>📚 সকল বিষয়ের বিস্তারিত PDF নোটস</li>
+                            <li>📋 চ্যাপটার-ভিত্তিক প্রশ্ন ব্যাংক</li>
+                            <li>🎥 ভিডিও টিউটোরিয়াল লিংক</li>
+                            <li>📅 স্টাডি প্ল্যানার ও রুটিন</li>
+                            <li>🏅 অনলাইন কুইজ ও টেস্ট সিস্টেম</li>
+                            <li>📱 মোবাইল-ফ্রেন্ডলি রিসোর্স</li>
+                        </ul>
+                        
+                        <p><strong>📞 যোগাযোগ ও সাহায্য:</strong></p>
+                        <p>আমরা সপ্তাহের সাতদিনই তোমাদের প্রশ্ন ও সমস্যার জবাব দিতে প্রস্তুত। তোমরা আমাদের:</p>
+                        <ul>
+                            <li>💬 ফেসবুক মেসেঞ্জারে গ্রুপে</li>
+                            <li>📧 ইমেইলের মাধ্যমে</li>
+                            <li>📱 হোয়াটসঅ্যাপে</li>
+                            <li>🎮 ডিসকর্ডে</li>
+                        </ul>
+                        <p>যেকোনো সময় যোগাযোগ করতে পারো। আমরা যত দ্রুত সম্ভব উত্তর দেওয়ার চেষ্টা করব।</p>
+                        
+                        <p><strong>🎊 বিশেষ অনুরোধ:</strong></p>
+                        <p>এই প্লাটফর্মটি তোমাদের জন্যই তৈরি। তাই তোমাদের মতামত, পরামর্শ এবং প্রয়োজনীয়তার কথা আমাদের জানাও। আমরা ক্রমাগত এই প্লাটফর্মকে আরো উন্নত করে তুলতে চাই।</p>
+                        
+                        <p><strong>🌟 শেষ কথা:</strong></p>
+                        <p>মনে রেখো, সফলতার কোনো শর্টকাট নেই। কিন্তু সঠিক গাইডেন্স এবং কঠোর পরিশ্রমের মাধ্যমে তোমরাও আমাদের মতো বা আমাদের চেয়েও ভালো ফলাফল অর্জন করতে পারবে। আমরা তোমাদের এই যাত্রায় সাথে আছি এবং থাকব।</p>
+                        
+                        <p><strong>তোমাদের সফলতাই আমাদের সফলতা!</strong></p>
+                        <p>শুভকামনা ও ভালোবাসা সহ,<br/>
+                        <strong>RGHS Refiners টিম</strong><br/>
+                        <em>"Excellence Through Guidance"</em></p>
+                    </div>
+                    
+                    <button class="toggle-full">View Full</button>
+                    <span class="notice-date">Posted: August 04, 2025</span>
+                </div>
 
-  
+                <!-- ========== Notice 2: Project Starting ========== -->
+                <div class="notice-card">
+                    <h3>⚙ Project Starting!</h3>
+                    <p class="short-desc">"RGHS Refiners"</p>
+                    
+                    <div class="full-desc hidden">
+                        Website has been updated. Website is expected to be fully functional, useful and opened by tomorrow. Almost all necessary features have been implemented. "RGHS Refiners" or "Refiners" is the name of the team. Educational materials will be added slowly as time goes on. Project is just starting.
+                    </div>
+                    
+                    <button class="toggle-full">View Full</button>
+                    <span class="notice-date">Posted: August 03, 2025</span>
+                </div>
 
-  <div class="contact-card">
-  <img class="avatar" src="images/People/Parag_Roy_Divya.webp" alt="Parag Roy Divya's Photo" />
-  <h3>Parag Roy Divya</h3>
-  <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-  <p><b>Physics, Math(HM+GM)</b><br>"Physics, GM, HM solver"</p>
+                <!-- ========== Notice 3: Website Development ========== -->
+                <div class="notice-card">
+                    <h3>📢 Full Website Coming</h3>
+                    <p class="short-desc">Website in development. More coming soon.</p>
+                    
+                    <div class="full-desc hidden">
+                        We are currently testing the website. More features will be added accordingly. Some features currently are not fully functional yet. Academic materials will be added accordingly.
+                    </div>
+                    
+                    <button class="toggle-full">View Full</button>
+                    <span class="notice-date">Posted: July 30, 2025</span>
+                </div>
+                
+            </div>
+            <!-- End Notice List -->
+            
+            <!-- Notice Controls -->
+            <div class="notice-controls">
+                <button id="show-more-notices">Show More Notices</button>
+                <button id="toggle-archive">Toggle Archive</button>
+            </div>
+        </section>
+        <!-- End Notices Section -->
 
-  <!-- Basic visible contact icons -->
-  <div class="social-links">
-    <a href="https://wa.me/8801601408822" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <!-- Section Divider -->
+        <div class="section-divider"></div>
 
-  </div>
-  <!-- Hidden extra details -->
-  <div class="extra-info hidden">
-    <strong>Most Available on:</strong>
-     <a href="https://wa.me/8801601408822" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    <p><strong>"Physics, GM, HM solver"</strong></p>
-    <p><strong>Subjects:</strong> All <br> <strong>Best at:</strong> Physics, General Math, Higher Math<br></p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://wa.me/8801601408822" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01601408822</a></li>
-    </ul>
-  </div>
-  <button class="toggle-info">View More</button>
-  </div>
+        <!-- ================================ RESOURCES SECTION ================================ -->
+        <section class="resources" id="resources">
+            <h2>Academic Resources</h2>
+            
+            <div class="resource-grid">
+                
+                <!-- ========== Resource Card 1: Physics Formula Sheet ========== -->
+                <div class="resource-card">
+                    <h3>Physics Formula Sheet (WILL BE ADDED SOON)</h3>
+                    <p>Quick reference for major formulas in chapters 3-6.</p>
+                    <a class="download-btn" download="" href="files/physics_formulas.pdf">📄 Download PDF</a>
+                </div>
 
-  <div class="contact-card">
-  <img class="avatar" src="images/People/Jitu_Chandra_Bhowmik.webp" alt="Jitu Chandra Bhowmik's Photo" />
-  <h3>Jitu Chandra Bhowmik</h3>
-  <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-  <p><b>Physics, Chemistry, Math(GM+HM)</b> <br> "Your talent cannot make you succeed. But your unbridled hard working will make you succeed."</p>
+                <!-- ========== Resource Card 2: Google Drive Folder ========== -->
+                <div class="resource-card">
+                    <h3>Google Drive Folder (WILL BE ADDED SOON)</h3>
+                    <p>Shared folder with past papers, solved assignments, and model answers.</p>
+                    <a class="download-btn" href="https://drive.google.com/your-folder-link" target="_blank">🔗 Open Drive</a>
+                </div>
+                
+            </div>
+        </section>
+        <!-- End Resources Section -->
 
-  <!-- Basic visible contact icons -->
-  <div class="social-links">
-  
-    <a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-    <a href="https://www.instagram.com/jituc.b/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-  </div>
-  <!-- Hidden extra details -->
-  <div class="extra-info hidden">
-    <strong>Most Available on:</strong>
-     <a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fab fa-facebook"></i></a>
-    <p><strong>"Your talent cannot make you succeed. But your unbridled hard working will make you succeed."</strong></p>
-     <p><strong>Subjects:</strong> All except English <br> <strong>Best at:</strong> Physics, Chemistry, General Math, Higher Math</p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://www.facebook.com/profile.php?id=100095218513751" target="_blank"><i class="fab fa-facebook"></i> GS Boom</a></li>
-      <li><a href="https://www.instagram.com/jituc.b/" target="_blank"><i class="fa-brands fa-instagram"></i> jituc.b</a></li>
-    </ul>
-  </div>
-  <button class="toggle-info">View More</button>
-  </div>
+        <!-- Section Divider -->
+        <hr class="section-divider"/>
 
-  <div class="contact-card">
-  <img class="avatar" src="images/People/Zubayet_Hasan_Tuhin.webp" alt="Zubayet Hasan Tuhin's Photo" />
-  <h3>Zubayet Hasan Tuhin</h3>
-  <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-  <p><b>Chemistry, Math(GM+HM), Physics</b></p>
+        <!-- ================================ EXTRA RESOURCES SECTION ================================ -->
+        <section class="section" id="resources-extra">
+            <h2>📚 Resources</h2>
+            
+            <div class="resource-grid">
+                
+                <!-- ========== Extra Resource 1: Physics Notes ========== -->
+                <div class="resource-card">
+                    <i class="fa-solid fa-file-pdf icon"></i>
+                    <h3>Physics Notes (WILL BE ADDED SOON)</h3>
+                    <p>Class 10 Final Term - All Chapters PDF</p>
+                    <a class="button" download="" href="resources/physics-notes.pdf">Download</a>
+                </div>
 
-  <!-- Basic visible contact icons -->
-  <div class="social-links">
-  
-    <a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-    <a href="https://wa.me/8801601722705" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-  </div>
-  <!-- Hidden extra details -->
-  <div class="extra-info hidden">
-    <strong>Most Available on:</strong>
-     <a href="https://wa.me/8801601722705" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-     <a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fab fa-facebook"></i></a>
-    <p><strong>Subjects:</strong> All <br> <strong>Best at:</strong> Chemistry, General Math. Higher Math, Physics<br></p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://www.facebook.com/zubayethasan.tuhin" target="_blank"><i class="fab fa-facebook"></i> Zubayet Hasan Tuhin</a></li>
-      <li><a href="https://wa.me/8801601722705" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01601722705</a></li>
-    </ul>
-  </div>
-  <button class="toggle-info">View More</button>
-  </div>
+                <!-- ========== Extra Resource 2: Class Routine ========== -->
+                <div class="resource-card">
+                    <i class="fa-solid fa-link icon"></i>
+                    <h3>Class Routine (WILL BE ADDED SOON)</h3>
+                    <p>Live Google Sheet of class schedule</p>
+                    <a class="button" href="https://docs.google.com/sheet..." target="_blank">View</a>
+                </div>
 
- <div class="contact-card">
-  <img class="avatar" src="images/People/Pranta_Saha.webp" alt="Pranta Saha's Photo" />
-  <h3>Pranta Saha</h3>
-  <p><small>HSC-27 [college loading],<br>GPA-5 SSC-25 RGHS</small></p>
-  <p><b>Physics, Math(GM+HM)</b><br> "When you give your heart to work, even fate bows down"</p>
+                <!-- ========== Extra Resource 3: Blog Guide ========== -->
+                <div class="resource-card">
+                    <i class="fa-solid fa-book icon"></i>
+                    <h3>Blog: How to Prepare (WILL BE ADDED SOON)</h3>
+                    <p>Tips and guide for SSC prep</p>
+                    <a class="button" href="blog/how-to-prepare.html">Read</a>
+                </div>
+                
+                <!-- Note: You can add more cards like this -->
+                
+            </div>
+        </section>
+        <!-- End Extra Resources Section -->
 
-  <!-- Basic visible contact icons -->
-  <div class="social-links">
-    <a href="https://www.instagram.com/_pran_ta_90/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-   <a href="https://wa.me/8801629131301" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-  </div>
-  <!-- Hidden extra details -->
-  <div class="extra-info hidden">
-    <strong>Most Available on:</strong>
-     <a href="https://www.instagram.com/_pran_ta_90/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-     <a href="https://wa.me/8801629131301" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    <p><strong>Subjects:</strong> All<br><strong>Best at:</strong> Physics, Math(GM+HM)</p>
-    <p><strong>Contacts:</strong></p>
-    <ul>
-      <li><a href="https://wa.me/8801629131301" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01629131301</a></li>
-      <li><a href="https://www.instagram.com/_pran_ta_90/" target="_blank"><i class="fa-brands fa-instagram"></i> _pran_ta_90</a></li>
-    </ul>
-  </div>
-  <button class="toggle-info">View More</button>
-  </div>
+    </main>
+    <!-- End Main Content -->
 
-  </section>
-  <section class="notices" id="notices">
-  <h2>Notices & Announcements</h2>
-  <div class="notice-list">
-    
+    <!-- ================================ JAVASCRIPT ================================ -->
+    <script src="script.js"></script>
 
-    <!-- Notice -->
-     <div class="notice-card">
-  <h3>🎉 RGHS Refiners - একাডেমিক সাপোর্ট প্ল্যাটফর্ম আনুষ্ঠানিক উদ্বোধন!</h3>
-  <p class="short-desc">রাঙামাটি সরকারি উচ্চ বিদ্যালয়ের ছাত্র-ছাত্রীদের জন্য বিশেষ একাডেমিক সহায়তা প্রোগ্রাম।</p>
-  <div class="full-desc hidden">
-    <p><strong>আস্সালামু আলাইকুম ও শুভেচ্ছা,</strong></p>
-    <p><strong>প্রিয় ভাই-বোনেরা,</strong></p>
-    
-    <p>আজ আমাদের জন্য একটি বিশেষ দিন। আমরা <strong>"RGHS Refiners"</strong> টিম হিসেবে আনুষ্ঠানিকভাবে আমাদের একাডেমিক সাপোর্ট প্ল্যাটফর্ম চালু করছি। আমরা সকলেই রাঙামাটি সরকারি উচ্চ বিদ্যালয়ের গর্বিত ছাত্র-ছাত্রী এবং SSC-25 ব্যাচে GPA-5 অর্জন করেছি। বর্তমানে আমরা HSC-27 ব্যাচের জন্য কঠোর পরিশ্রমের সাথে প্রস্তুতি নিচ্ছি।</p>
+    <!-- ================================ STARTUP INFO MODAL ================================ -->
+    <div class="modal" id="startup-modal">
+        <div class="modal-content">
+            
+            <!-- Modal Close Button -->
+            <span class="close-modal">×</span>
+            
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2><i class="fas fa-users"></i> About RGHS Refiners</h2>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                
+                <!-- ========== Our Story Section ========== -->
+                <div class="info-section">
+                    <h3><i class="fas fa-book-open"></i> Our Story</h3>
+                    <p>We are a group of recent graduates from Rangamati Government High School (RGHS) who achieved GPA-5 in SSC-25. Now pursuing HSC-27, we created this platform to help our junior students excel in their academic journey.</p>
+                </div>
 
-    <p><strong>🎯 আমাদের মিশন:</strong></p>
-    <p>আমাদের প্রধান লক্ষ্য হলো RGHS এর জুনিয়র ছাত্র-ছাত্রীদের একাডেমিক উন্নতিতে সহায়তা করা এবং তাদের স্বপ্ন পূরণের পথে একটি শক্তিশালী সাপোর্ট সিস্টেম গড়ে তোলা।</p>
+                <!-- ========== Goals Section ========== -->
+                <div class="info-section">
+                    <h3><i class="fas fa-target"></i> Our Goals</h3>
+                    <ul>
+                        <li>📚 Provide academic support to junior students</li>
+                        <li>🤝 Create a supportive learning community</li>
+                        <li>📝 Share study materials and resources</li>
+                        <li>💡 Mentor students for academic success</li>
+                        <li>🌟 Inspire excellence in education</li>
+                    </ul>
+                </div>
 
-    <p><strong>📚 এই প্ল্যাটফর্মে যা পাবে:</strong></p>
-    <ul>
-      <li><strong>📖 স্টাডি ম্যাটেরিয়াল:</strong> প্রতিটি বিষয়ের জন্য বিশেষভাবে প্রস্তুতকৃত নোটস, গাইড এবং সামারি</li>
-      <li><strong>📝 প্রশ্নপত্র ও সমাধান:</strong> বিগত বছরের প্রশ্ন, মডেল টেস্ট এবং বিস্তারিত সমাধান</li>
-      <li><strong>🎯 এক্সাম প্রিপারেশন:</strong> পরীক্ষার কৌশল, টাইম ম্যানেজমেন্ট এবং প্রস্তুতির টিপস</li>
-      <li><strong>🤝 ব্যক্তিগত গাইডেন্স:</strong> সরাসরি যোগাযোগের মাধ্যমে একান্ত পরামর্শ</li>
-      <li><strong>📊 অনলাইন এক্সামঃ</strong> অনলাইনে মডেল টেস্টের ব্যবস্থা</li>
-      <li><strong>💡 ক্যারিয়ার কাউন্সেলিং:</strong> ভবিষ্যৎ পরিকল্পনা এবং বিষয় নির্বাচনে সহায়তা</li>
-      <li><strong>🏆 মোটিভেশন ও মেন্টরিং:</strong> পড়াশোনায় অনুপ্রেরণা এবং মানসিক সাপোর্ট</li>
-    </ul>
+                <!-- ========== Team Highlights ========== -->
+                <div class="info-section">
+                    <h3><i class="fas fa-star"></i> Team Highlights</h3>
+                    
+                    <div class="highlight-grid">
+                        <!-- Highlight Card 1 -->
+                        <div class="highlight-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>All GPA-5 Achievers</h4>
+                            <p>Every team member secured GPA-5 in SSC-25</p>
+                        </div>
 
-    <p><strong>👥 আমাদের টিম সম্পর্কে:</strong></p>
-    <p>RGHS Refiners টিমের প্রতিটি সদস্য বিভিন্ন বিষয়ে বিশেষ দক্ষতা রাখে। আমাদের মধ্যে রয়েছে বিজ্ঞান, মানবিক এবং ব্যবসায় শিক্ষা শাখার মেধাবী ছাত্র-ছাত্রী। আমরা শুধু একাডেমিক সাফল্যই নয়, বরং সার্বিক ব্যক্তিত্ব বিকাশে তোমাদের সহায়তা করতে প্রতিশ্রুতিবদ্ধ।</p>
+                        <!-- Highlight Card 2 -->
+                        <div class="highlight-card">
+                            <i class="fas fa-school"></i>
+                            <h4>RGHS Alumni</h4>
+                            <p>Proud graduates of Rangamati Government High School</p>
+                        </div>
 
-    <p><strong>⏰ বর্তমান অবস্থা ও ভবিষ্যৎ পরিকল্পনা:</strong></p>
-    <p>এই মুহূর্তে আমাদের প্ল্যাটফর্ম বেসিক সেটআপ সম্পন্ন হয়েছে। আগামী কয়েক সপ্তাহের মধ্যে আমরা যোগ করব:</p>
-    <ul>
-      <li>📚 সকল বিষয়ের বিস্তারিত PDF নোটস</li>
-      <li>📋 চ্যাপ্টার-ভিত্তিক প্রশ্ন ব্যাংক</li>
-      <li>🎥 ভিডিও টিউটোরিয়াল লিংক</li>
-      <li>📅 স্টাডি প্ল্যানার ও রুটিন</li>
-      <li>🏅 অনলাইন কুইজ ও টেস্ট সিস্টেম</li>
-      <li>📱 মোবাইল-ফ্রেন্ডলি রিসোর্স</li>
-    </ul>
+                        <!-- Highlight Card 3 -->
+                        <div class="highlight-card">
+                            <i class="fas fa-rocket"></i>
+                            <h4>HSC-27 Batch</h4>
+                            <p>Currently preparing for HSC examinations</p>
+                        </div>
+                    </div>
+                </div>
 
-    <p><strong>📞 যোগাযোগ ও সাহায্য:</strong></p>
-    <p>আমরা সপ্তাহের সাতদিনই তোমাদের প্রশ্ন ও সমস্যার জবাব দিতে প্রস্তুত। তোমরা আমাদের:</p>
-    <ul>
-      <li>💬 ফেসবুক মেসেঞ্জারে গ্রপে</li>
-      <li>📧 ইমেইলের মাধ্যমে</li>
-      <li>📱 হোয়াটসঅ্যাপে</li>
-      <li>🎮 ডিসকর্ডে</li>
-    </ul>
-    <p>যেকোনো সময় যোগাযোগ করতে পারো। আমরা যত দ্রুত সম্ভব উত্তর দেওয়ার চেষ্টা করব।</p>
+                <!-- ========== Image Gallery Section ========== -->
+                <div class="info-section">
+                    <h3><i class="fas fa-images"></i> Gallery</h3>
+                    <div class="image-gallery">
+                        <!-- Add your images here -->
+                        <img alt="SSC25 A+ Graduates" class="gallery-img" src="images/Website/gallery/SSC25_A+_Graduates.webp"/>
+                        <!-- Add more images as needed -->
+                    </div>
+                </div>
 
-    <p><strong>🎊 বিশেষ অনুরোধ:</strong></p>
-    <p>এই প্ল্যাটফর্মটি তোমাদের জন্যই তৈরি। তাই তোমাদের মতামত, পরামর্শ এবং প্রয়োজনীয়তার কথা আমাদের জানাও। আমরা ক্রমাগত এই প্ল্যাটফর্মকে আরও উন্নত করে তুলতে চাই।</p>
+                <!-- ========== Latest Updates ========== -->
+                <div class="info-section">
+                    <h3><i class="fas fa-bullhorn"></i> Latest Updates</h3>
+                    
+                    <div class="update-item">
+                        <span class="update-date">August 2025</span>
+                        <p>🎉 Website officially launched! Welcome to our platform.</p>
+                    </div>
+                    
+                    <div class="update-item">
+                        <span class="update-date">July 2025</span>
+                        <p>🤝 Team formation completed with all GPA-5 achievers.</p>
+                    </div>
+                </div>
 
-    <p><strong>🌟 শেষ কথা:</strong></p>
-    <p>মনে রেখো, সফলতার কোনো শর্টকাট নেই। কিন্তু সঠিক গাইডেন্স এবং কঠোর পরিশ্রমের মাধ্যমে তোমরাও আমাদের মতো বা আমাদের চেয়েও ভালো ফলাফল অর্জন করতে পারবে। আমরা তোমাদের এই যাত্রায় সাথে আছি এবং থাকব।</p>
-
-    <p><strong>তোমাদের সফলতাই আমাদের সফলতা!</strong></p>
-
-    <p>শুভকামনা ও ভালোবাসা সহ,<br>
-    <strong>RGHS Refiners টিম</strong><br>
-    <em>"Excellence Through Guidance"</em></p>
-  </div>
-  <button class="toggle-full">View Full</button>
-  <span class="notice-date">Posted: August 04, 2025</span>
-</div>  
-      <div class="notice-card">
-      <h3>⚙ Project Starting!</h3>
-      <p class="short-desc">"RGHS Refiners"</p>
-      <div class="full-desc hidden">Website has been updated. Website is expected to be fully functional, useful and opened by tomorrow. Almost all necessary features have been implemented. "RGHS Refiners" or "Refiners" is the name of the team. Educational materials will be added slowly as time goes on. Project is just starting.</div>
-      <button class="toggle-full">View Full</button>
-      <span class="notice-date">Posted: August 03, 2025</span>
-    </div>
-    <div class="notice-card">
-      <h3>📢 Full Website Coming</h3>
-      <p class="short-desc">Website in development. More coming soon.</p>
-      <div class="full-desc hidden">We are currently testing the website. More features will be added accordingly. Some features currently are not fully functional yet. Academic materials will be added accordingly.</div>
-      <button class="toggle-full">View Full</button>
-      <span class="notice-date">Posted: July 30, 2025</span>
-    </div>
-  </div>
-
-  <div class="notice-controls">
-    <button id="show-more-notices">Show More Notices</button>
-    <button id="toggle-archive">Toggle Archive</button>
-  </div>
-  </section>
- <div class="section-divider"></div>
-  <section class="resources" id="resources">
-  <h2>Academic Resources</h2>
-  <div class="resource-grid">
-
-    <div class="resource-card">
-      <h3>Physics Formula Sheet (WILL BE ADDED SOON)</h3>
-      <p>Quick reference for major formulas in chapters 3-6.</p>
-      <a href="files/physics_formulas.pdf" download class="download-btn">📄 Download PDF</a>
-    </div>
-
-    <div class="resource-card">
-      <h3>Google Drive Folder (WILL BE ADDED SOON)</h3>
-      <p>Shared folder with past papers, solved assignments, and model answers.</p>
-      <a href="https://drive.google.com/your-folder-link" target="_blank" class="download-btn">🔗 Open Drive</a>
-    </div>
-
-  </div>
-  </section>
- </div>
- <hr class="section-divider">
-  <section id="resources" class="section">
-  <h2>📚 Resources</h2>
-  <div class="resource-grid">
-    
-    <div class="resource-card">
-      <i class="fa-solid fa-file-pdf icon"></i>
-      <h3>Physics Notes (WILL BE ADDED SOON)</h3>
-      <p>Class 10 Final Term - All Chapters PDF</p>
-      <a href="resources/physics-notes.pdf" download class="button">Download</a>
-    </div>
-
-    <div class="resource-card">
-      <i class="fa-solid fa-link icon"></i>
-      <h3>Class Routine (WILL BE ADDED SOON)</h3>
-      <p>Live Google Sheet of class schedule</p>
-      <a href="https://docs.google.com/sheet..." target="_blank" class="button">View</a>
-    </div>
-
-    <div class="resource-card">
-      <i class="fa-solid fa-book icon"></i>
-      <h3>Blog: How to Prepare (WILL BE ADDED SOON)</h3>
-      <p>Tips and guide for SSC prep</p>
-      <a href="blog/how-to-prepare.html" class="button">Read</a>
-    </div>
-
-    <!-- You can add more cards like this -->
-
-  </div>
-  </section>
-</section>
-  </main>
-  <script src="script.js"></script>
-
-
-<!-- Startup Info Modal -->
-<div id="startup-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    
-    <div class="modal-header">
-      <h2><i class="fas fa-users"></i> About RGHS Refiners</h2>
-    </div>
-    
-    <div class="modal-body">
-      
-      <!-- Our Story Section -->
-      <div class="info-section">
-        <h3><i class="fas fa-book-open"></i> Our Story</h3>
-        <p>We are a group of recent graduates from Rangamati Government High School (RGHS) who achieved GPA-5 in SSC-25. Now pursuing HSC-27, we created this platform to help our junior students excel in their academic journey.</p>
-      </div>
-      
-      <!-- Goals Section -->
-      <div class="info-section">
-        <h3><i class="fas fa-target"></i> Our Goals</h3>
-        <ul>
-          <li>📚 Provide academic support to junior students</li>
-          <li>🤝 Create a supportive learning community</li>
-          <li>📝 Share study materials and resources</li>
-          <li>💡 Mentor students for academic success</li>
-          <li>🌟 Inspire excellence in education</li>
-        </ul>
-      </div>
-      
-      <!-- Team Highlights -->
-      <div class="info-section">
-        <h3><i class="fas fa-star"></i> Team Highlights</h3>
-        <div class="highlight-grid">
-          <div class="highlight-card">
-            <i class="fas fa-graduation-cap"></i>
-            <h4>All GPA-5 Achievers</h4>
-            <p>Every team member secured GPA-5 in SSC-25</p>
-          </div>
-          <div class="highlight-card">
-            <i class="fas fa-school"></i>
-            <h4>RGHS Alumni</h4>
-            <p>Proud graduates of Rangamati Government High School</p>
-          </div>
-          <div class="highlight-card">
-            <i class="fas fa-rocket"></i>
-            <h4>HSC-27 Batch</h4>
-            <p>Currently preparing for HSC examinations</p>
-          </div>
+                <!-- ========== Contact CTA ========== -->
+                <div class="info-section cta-section">
+                    <h3><i class="fas fa-handshake"></i> Ready to Connect?</h3>
+                    <p>Have questions? Need academic help? Don't hesitate to reach out!</p>
+                    <button class="cta-btn" id="contact-cta-btn">
+                        <i class="fas fa-arrow-down"></i> Contact Us Now
+                    </button>
+                </div>
+                
+            </div>
+            <!-- End Modal Body -->
         </div>
-      </div>
-      
-      <!-- Image Gallery Section -->
-      <div class="info-section">
-        <h3><i class="fas fa-images"></i> Gallery</h3>
-        <div class="image-gallery">
-          <!-- Add your images here -->
-           
-          <img src="images/Website/gallery/SSC25_A+_Graduates.webp" alt="SSC25 A+ Graduates" class="gallery-img">
-          <!-- Add more images as needed -->
-        </div>
-      </div>
-      
-      <!-- Latest Updates -->
-      <div class="info-section">
-        <h3><i class="fas fa-bullhorn"></i> Latest Updates</h3>
-        <div class="update-item">
-          <span class="update-date">August 2025</span>
-          <p>🎉 Website officially launched! Welcome to our platform.</p>
-        </div>
-        <div class="update-item">
-          <span class="update-date">July 2025</span>
-          <p>🤝 Team formation completed with all GPA-5 achievers.</p>
-        </div>
-      </div>
-      
-      <!-- Contact CTA -->
-      <div class="info-section cta-section">
-        <h3><i class="fas fa-handshake"></i> Ready to Connect?</h3>
-        <p>Have questions? Need academic help? Don't hesitate to reach out!</p>
-        <button class="cta-btn" id="contact-cta-btn">
-          <i class="fas fa-arrow-down"></i> Contact Us Now
-        </button>
-      </div>
-      
+        <!-- End Modal Content -->
     </div>
-  </div>
-</div>  
+    <!-- End Startup Info Modal -->
+
 </body>
-<footer> &copy; Prakirna Chakma</footer>
+
+<!-- ================================ FOOTER ================================ -->
+<footer>
+    <p>&copy; 2025 Prakirna Chakma - RGHS Refiners</p>
+</footer>
+
 </html>
