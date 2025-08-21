@@ -1,8 +1,20 @@
 // Dark mode toggle
 const toggle = document.getElementById('mode-toggle');
+
+// Persisted theme on load
+try {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light');
+    toggle.textContent = '☀️';
+  } else {
+    toggle.textContent = '🌙';
+  }
+} catch (e) {}
 toggle.addEventListener('click', () => {
-  document.body.classList.toggle('light');
-  toggle.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+  const isLight = document.body.classList.toggle('light');
+  try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(e){}
+  toggle.textContent = isLight ? '☀️' : '🌙';
 });
 
 // Interactive dot matrix background
