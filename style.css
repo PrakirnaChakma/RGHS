@@ -130,6 +130,42 @@ nav {
   backdrop-filter: blur(4px);
 }
 
+/* ======= Restore contact "View more" styles ======= */
+/* keeps the extra-info text gray, removes default bullets, and makes links purple */
+.extra-info {
+  color: #ccc;
+}
+
+.extra-info ul {
+  list-style: none;       /* remove bullets introduced by browser default */
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.extra-info ul li {
+  margin-bottom: 0.4rem;
+  list-style: none;       /* extra safety */
+}
+
+/* links inside the extra-info (e.g., "Most available on:", contact links) */
+.extra-info a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.extra-info a:hover {
+  color: #ffffff;
+}
+
+/* ensure social icons inside contact cards keep the accent color */
+.contact-card .social-icons a,
+.contact-card .social-links a {
+  color: var(--accent) !important;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+
 .contact-card:hover {
   transform: translateY(-6px);
 }
