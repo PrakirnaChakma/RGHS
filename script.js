@@ -59,43 +59,88 @@ function draw() {
 }
 draw();
 
+// ========== DYNAMIC NOTICES LOADER ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const homeContainer = document.getElementById('home-notice-list');   // on index.html
+  const allContainer  = document.getElementById('all-notice-list');    // on notices.html
 
-  // Expand single notice full text
-  document.querySelectorAll(".toggle-full").forEach(button => {
-    button.addEventListener("click", () => {
-      const fullDesc = button.previousElementSibling;
-      fullDesc.classList.toggle("hidden");
-      button.textContent = fullDesc.classList.contains("hidden") ? "View Full" : "Hide";
-    });
-  });
+  // If neither page has a notices container, do nothing
+  if (!homeContainer && !allContainer) return;
 
-  // Show more notices logic
-  const allNotices = document.querySelectorAll(".notice-card");
-  const showMoreBtn = document.getElementById("show-more-notices");
-  let showingAll = false;
+  fetch('data/notices.json')
+    .then(r => r.json())
+    .then((notices) => {
+      // sort newest first
+      notices.sort((a,b) => new Date(b.date) - new Date(a.date));
 
-  function updateNoticeVisibility() {
-    allNotices.forEach((card, index) => {
-      if (card.classList.contains("archived")) return;
-      card.style.display = (!showingAll && index >= 2) ? "none" : "block";
-    });
+      if (homeContainer) {
+        const latest = notices.filter(n => !n.archived).slice(0, 2);
+        renderNotices(homeContainer, latest);
+      }
+
+      if (allContainer) {
+        renderNotices(allContainer, notices);
+        setupFilters(notices);
+      }
+    })
+    .catch(err => console.error('Failed to load notices:', err));
+
+  // Render a list of notices into a container
+  function renderNotices(container, list) {
+    container.innerHTML = list.map(n => `
+      <article class="notice-card${n.archived ? ' archived' : ''}">
+        <h3>${escapeHTML(n.title)}</h3>
+        <p class="short-desc">${n.short}</p>
+        <div class="full-desc hidden">${n.full}</div>
+        <button class="toggle-full">View Full</button>
+        <span class="notice-date">Posted: ${formatDate(n.date)}</span>
+      </article>
+    `).join('');
   }
 
-  showMoreBtn.addEventListener("click", () => {
-    showingAll = !showingAll;
-    updateNoticeVisibility();
-    showMoreBtn.textContent = showingAll ? "Show Less Notices" : "Show More Notices";
+  // Event delegation for "View Full" buttons (works for both pages)
+  document.body.addEventListener('click', (e) => {
+    const btn = e.target.closest('.toggle-full');
+    if (!btn) return;
+    const full = btn.previousElementSibling;
+    full.classList.toggle('hidden');
+    btn.textContent = full.classList.contains('hidden') ? 'View Full' : 'Hide';
   });
 
-  updateNoticeVisibility();
+  function formatDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' });
+  }
 
-  // Toggle archived
-  const archiveBtn = document.getElementById("toggle-archive");
-  archiveBtn.addEventListener("click", () => {
-    document.querySelectorAll(".notice-card.archived").forEach(card => {
-      card.classList.toggle("hidden");
-    });
-  });
+  function escapeHTML(str) {
+    return String(str).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  }
+
+  // Filters (only on notices.html)
+  function setupFilters(allNotices) {
+    const q = document.getElementById('notice-q');
+    const archivedToggle = document.getElementById('toggle-archived');
+
+    function apply() {
+      const term = (q?.value || '').toLowerCase();
+      const showArchived = !!archivedToggle?.checked;
+
+      const filtered = allNotices.filter(n => {
+        if (!showArchived && n.archived) return false;
+        if (!term) return true;
+        const hay = (n.title + ' ' + n.short + ' ' + (n.tags || []).join(' ')).toLowerCase();
+        return hay.includes(term);
+      });
+
+      renderNotices(document.getElementById('all-notice-list'), filtered);
+    }
+
+    q?.addEventListener('input', apply);
+    archivedToggle?.addEventListener('change', apply);
+  }
+});
+
+
  
   document.querySelectorAll(".toggle-info").forEach(button => {
     button.addEventListener("click", () => {
@@ -320,3 +365,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
 });
+
