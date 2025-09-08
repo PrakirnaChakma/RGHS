@@ -1,3 +1,4 @@
+/* VARIABLES & BASE */
 :root {
   --bg-color: #0f0f1a;
   --text-color: #eaeaea;
@@ -26,8 +27,7 @@ canvas#dotmatrix {
   z-index: -1;
 }
 
-
-
+/* LAYOUT & NAVIGATION */
 header {
   position: sticky;
   top: 0;
@@ -38,7 +38,6 @@ header {
   align-items: center;
   z-index: 10;
   backdrop-filter: blur(8px);
-  min-height: auto;
 }
 
 nav {
@@ -78,6 +77,7 @@ nav {
   color: var(--text-color);
 }
 
+/* INTRO SECTION */
 .intro {
   max-width: 800px;
   margin: 10rem auto;
@@ -95,6 +95,8 @@ nav {
   font-size: 1.2rem;
   opacity: 0.8;
 }
+
+/* CONTACTS */
 .contacts {
   max-width: 1100px;
   margin: 4rem auto;
@@ -115,16 +117,31 @@ nav {
 }
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(30, 30, 50, 0.9);
   border: 1px solid var(--accent);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
   transition: transform 0.3s ease;
+  text-align: center;
+  backdrop-filter: blur(4px);
 }
 
 .contact-card:hover {
   transform: translateY(-6px);
+}
+
+.contact-card .avatar {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
 }
 
 .contact-card h3 {
@@ -136,38 +153,33 @@ nav {
   opacity: 0.7;
 }
 
-.social-icons {
+.contact-card .extra-info {
   margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
-.social-icons a {
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: var(--accent);
-  transition: transform 0.2s;
+.contact-card .extra-info.hidden {
+  display: none;
 }
 
-.social-icons a:hover {
-  transform: scale(1.3);
+.contact-card .toggle-info {
+  margin-top: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.2s;
 }
 
-.contact-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(30, 30, 50, 0.9); /* darker solid background */
-  border: 1px solid var(--accent);
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
-  transition: transform 0.3s ease;
-  text-align: center;
-  backdrop-filter: blur(4px);
+.contact-card .toggle-info:hover {
+  background-color: #a355ff;
 }
 
+/* Light mode tweaks */
 body.light .contact-card {
   background-color: #ffffff;
   border-color: #ccc;
@@ -178,52 +190,29 @@ body.light .contact-card .extra-info {
   color: #111111;
 }
 
-.contact-card:hover {
-  transform: translateY(-6px);
+/* Social Icons */
+.social-icons,
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.contact-card .avatar {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 16px; /* Makes it a soft square — change to 0px for sharp corners */
-  margin-bottom: 1rem;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
-}
-
-
-.social-icons a {
+.social-icons a,
+.social-links a {
   font-size: 1.4rem;
   color: var(--accent);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.social-icons a:hover {
+.social-icons a:hover,
+.social-links a:hover {
   transform: scale(1.3);
   color: #ffffff;
 }
 
-.contacts-wrapper {
-  background-color: rgba(20, 20, 30, 0.95); /* solid dark block */
-  padding: 4rem 0;
-  border-top: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
-  backdrop-filter: blur(6px);
-}
-
-body.light .contacts-wrapper {
-  background-color: #f2f2f2; /* light mode background */
-}
-
-.section-divider {
-  height: 2px;
-  width: 80%;
-  margin: 4rem auto;
-  background: linear-gradient(to right, transparent, var(--accent), transparent);
-  opacity: 0.4;
-}
-
+/* NOTICES */
 .notices {
   max-width: 1000px;
   margin: 4rem auto;
@@ -244,20 +233,15 @@ body.light .contacts-wrapper {
 }
 
 .notice-card {
+  position: relative;
   background-color: rgba(40, 40, 60, 0.9);
-  border-left: 4px solid var(--accent);
   padding: 1.5rem;
-  border-radius: 8px;
-  text-align: left;
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(138, 43, 226, 0.15);
+  text-align: left;
+  transition: all 0.3s ease;
 }
-
-body.light .notice-card {
-  background-color: #f9f9f9;
-  border-left-color: #6a0dad;
-}
-
-
 
 .notice-card h3 {
   margin-top: 0;
@@ -275,79 +259,9 @@ body.light .notice-card {
   color: var(--accent);
 }
 
-.resources {
-  max-width: 1000px;
-  margin: 4rem auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.resources h2 {
-  font-size: 2.5rem;
-  color: var(--accent);
-  margin-bottom: 2rem;
-}
-
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
-
-.resource-card {
-  background-color: rgba(40, 40, 60, 0.9);
-  border-left: 4px solid var(--accent);
-  padding: 1.5rem;
-  border-radius: 10px;
-  text-align: left;
-  box-shadow: 0 0 12px rgba(138, 43, 226, 0.2);
-  transition: transform 0.2s;
-}
-
-.resource-card:hover {
-  transform: translateY(-4px);
-}
-
-body.light .resource-card {
-  background-color: #fefefe;
-  border-left-color: #6a0dad;
-}
-
-.download-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
-}
-
-.download-btn:hover {
-  background-color: #a355ff;
-}
-
-.notice-card {
-  position: relative;
-  background-color: rgba(40, 40, 60, 0.9);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-left: 4px solid var(--accent);
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
 .notice-card .full-desc {
   margin-top: 1rem;
   color: #ccc;
-}
-
-body.light .notice-card .full-desc {
-  color: #333333;
 }
 
 .notice-card .full-desc.hidden {
@@ -395,88 +309,24 @@ body.light .notice-card {
   color: #222;
 }
 
-.contact-card {
-  background-color: rgba(40, 40, 60, 0.95);
-  padding: 1rem;
-  border-radius: 10px;
+body.light .notice-card .full-desc {
+  color: #333333;
+}
+
+/* RESOURCES */
+.resources {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 2rem;
   text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
 }
 
-.contact-card .extra-info {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-.contact-card .extra-info.hidden {
-  display: none;
-}
-
-.contact-card .toggle-info {
-  margin-top: 0.8rem;
-  padding: 0.4rem 0.8rem;
-  background-color: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: 0.2s;
-}
-
-.contact-card .toggle-info:hover {
-  background-color: #a355ff;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-top: 0.6rem;
-}
-
-.social-links a {
-  font-size: 1.3rem;
+.resources h2 {
+  font-size: 2.5rem;
   color: var(--accent);
-  transition: 0.2s ease;
+  margin-bottom: 2rem;
 }
 
-.social-links a:hover {
-  color: #ffffff;
-}
-
-.extra-info ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 0.5rem;
-}
-
-.extra-info ul li {
-  margin-bottom: 0.4rem;
-}
-
-.extra-info a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.extra-info a:hover {
-  color: #ffffff;
-}
-
-/* Section Styling */
-.section {
-  padding: 4rem 2rem;
-  background-color: rgba(20, 20, 30, 0.6);
-  border-radius: 16px;
-  margin: 3rem 0;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-}
-
-/* Resource Grid */
 .resource-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -484,15 +334,14 @@ body.light .notice-card {
   margin-top: 2rem;
 }
 
-/* Resource Card */
 .resource-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(40, 40, 60, 0.9);
+  border-left: 4px solid var(--accent);
   padding: 1.5rem;
   border-radius: 12px;
   text-align: center;
   transition: 0.3s ease;
-  box-shadow: 0 0 10px rgba(155, 93, 229, 0.1);
+  box-shadow: 0 0 12px rgba(138, 43, 226, 0.2);
 }
 
 .resource-card:hover {
@@ -500,14 +349,12 @@ body.light .notice-card {
   box-shadow: 0 0 15px rgba(155, 93, 229, 0.3);
 }
 
-/* Icons */
 .resource-card .icon {
   font-size: 2rem;
   color: var(--accent);
   margin-bottom: 0.8rem;
 }
 
-/* Button */
 .resource-card .button {
   display: inline-block;
   margin-top: 1rem;
@@ -525,93 +372,80 @@ body.light .notice-card {
   background: #7b3ae1;
 }
 
-.section-divider {
+/* Light mode tweaks */
+body.light .resource-card {
+  background: #ffffff;
+  border: 1px solid rgba(106, 13, 173, 0.15);
+  color: #333333;
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.1);
+}
+
+body.light .resource-card:hover {
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.2);
+}
+
+body.light .resource-card .icon {
+  color: #6a0dad;
+}
+
+body.light .resource-card h3 {
+  color: #333333;
+}
+
+body.light .resource-card p {
+  color: #555555;
+}
+
+body.light .resource-card .button {
+  background: #6a0dad;
+  color: white;
+}
+
+body.light .resource-card .button:hover {
+  background: #5a0b9a;
+}
+
+/* UTILITIES */
+.download-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent);
+  color: white;
   border: none;
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.download-btn:hover {
+  background-color: #a355ff;
+}
+
+.section {
+  padding: 4rem 2rem;
+  background-color: rgba(20, 20, 30, 0.6);
+  border-radius: 16px;
   margin: 3rem 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-
-/* ========== MOBILE RESPONSIVE FIXES ========== */
-/* Add this section at the end of your style.css file */
-
-/* Mobile-first responsive design */
-/* Hamburger Menu Version - Replace the mobile section in your CSS */
-@media (max-width: 768px) {
-  header {
-    padding: 0.5rem 1rem;
-    min-height: auto;
-  }
-
-  nav {
-    position: relative;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  /* Hide nav links by default on mobile */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: var(--nav-bg);
-    backdrop-filter: blur(8px);
-    padding: 1rem;
-    border-top: 1px solid var(--accent);
-    z-index: 100;
-  }
-
-  /* Show nav links when active */
-  .nav-links.active {
-    display: flex;
-  }
-
-  /* Style for hamburger button */
-  .hamburger {
-    display: block;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.2rem;
-  }
-
-  /* Keep the rest of your mobile styles */
-  .intro {
-    margin: 2rem auto;
-    padding: 1rem;
-  }
-
-  .intro h1 {
-    font-size: 2rem;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .contact-card .avatar {
-    width: 120px;
-    height: 120px;
-  }
-
-  .contacts h2, .notices h2, .resources h2 {
-    font-size: 2rem;
-  }
+body.light .section {
+  background-color: rgba(240, 240, 245, 0.8);
 }
 
-/* ========== STARTUP INFO MODAL STYLES ========== */
-/* Add this to your style.css file */
+.section-divider {
+  height: 2px;
+  width: 80%;
+  margin: 4rem auto;
+  border: none;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
 
-/* Startup Button in Intro Section */
+/* MODAL / STARTUP INFO */
 .startup-btn {
   margin-top: 2rem;
   padding: 1rem 2rem;
@@ -658,7 +492,6 @@ body.light .notice-card {
   to { opacity: 1; }
 }
 
-/* Modal Content Container */
 .modal-content {
   background-color: var(--bg-color);
   margin: 2% auto;
@@ -675,17 +508,10 @@ body.light .notice-card {
 }
 
 @keyframes slideIn {
-  from { 
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to { 
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* Modal Header */
 .modal-header {
   background: linear-gradient(135deg, var(--accent), #a855f7);
   color: white;
@@ -703,7 +529,6 @@ body.light .notice-card {
   gap: 0.5rem;
 }
 
-/* Close Button */
 .close-modal {
   color: white;
   float: right;
@@ -720,13 +545,11 @@ body.light .notice-card {
   color: #ffcccc;
 }
 
-/* Modal Body */
 .modal-body {
   padding: 2rem;
   color: var(--text-color);
 }
 
-/* Info Sections */
 .info-section {
   margin-bottom: 2.5rem;
   padding: 1.5rem;
@@ -745,7 +568,8 @@ body.light .notice-card {
   gap: 0.5rem;
 }
 
-.info-section p, .info-section li {
+.info-section p,
+.info-section li {
   line-height: 1.6;
   opacity: 0.9;
 }
@@ -760,7 +584,6 @@ body.light .notice-card {
   padding-left: 0.5rem;
 }
 
-/* Highlight Grid */
 .highlight-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -798,7 +621,6 @@ body.light .notice-card {
   margin: 0;
 }
 
-/* Image Gallery */
 .image-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -820,7 +642,6 @@ body.light .notice-card {
   transform: scale(1.05);
 }
 
-/* Updates */
 .update-item {
   display: flex;
   align-items: flex-start;
@@ -846,7 +667,6 @@ body.light .notice-card {
   flex: 1;
 }
 
-/* CTA Section */
 .cta-section {
   background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(168, 85, 247, 0.1));
   border-left: 4px solid var(--accent);
@@ -873,7 +693,7 @@ body.light .notice-card {
   transform: translateY(-2px);
 }
 
-/* Light Mode Adjustments */
+/* Light mode tweaks */
 body.light .modal-content {
   background-color: #ffffff;
   border-color: #6a0dad;
@@ -892,83 +712,60 @@ body.light .update-item {
   background: rgba(106, 13, 173, 0.05);
 }
 
-/* Mobile Responsiveness */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+  header {
+    padding: 0.5rem 1rem;
+  }
+
+  nav { position: relative; }
+  .logo { font-size: 1.2rem; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+    border-top: 1px solid var(--accent);
+    z-index: 100;
+  }
+
+  .nav-links.active { display: flex; }
+
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.2rem;
+  }
+
+  .intro { margin: 2rem auto; padding: 1rem; }
+  .intro h1 { font-size: 2rem; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .contact-card .avatar { width: 120px; height: 120px; }
+
+  .contacts h2,
+  .notices h2,
+  .resources h2 { font-size: 2rem; }
+
   .modal-content {
     width: 95%;
     margin: 1% auto;
     max-height: 95vh;
   }
-  
-  .modal-body {
-    padding: 1rem;
-  }
-  
-  .info-section {
-    padding: 1rem;
-  }
-  
-  .highlight-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .startup-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .update-item {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .update-date {
-    align-self: flex-start;
-  }
+  .modal-body { padding: 1rem; }
+  .info-section { padding: 1rem; }
+  .highlight-grid { grid-template-columns: 1fr; }
+  .startup-btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+  .update-item { flex-direction: column; gap: 0.5rem; }
+  .update-date { align-self: flex-start; }
 }
-
-/* ========== RESOURCE CARDS LIGHT MODE FIX ========== */
-/* Add this to your style.css file */
-
-/* Fix for the bottom section resource cards in light mode */
-body.light .section {
-  background-color: rgba(240, 240, 245, 0.8); /* Light background instead of dark */
-}
-
-/* Fix for individual resource cards in light mode */
-body.light .resource-card {
-  background: #ffffff; /* Pure white background */
-  border: 1px solid rgba(106, 13, 173, 0.15); /* Light purple border */
-  color: #333333; /* Dark text */
-  box-shadow: 0 0 10px rgba(106, 13, 173, 0.1); /* Light purple shadow */
-}
-
-body.light .resource-card:hover {
-  box-shadow: 0 0 15px rgba(106, 13, 173, 0.2); /* Slightly stronger shadow on hover */
-}
-
-/* Fix for resource card icons in light mode */
-body.light .resource-card .icon {
-  color: #6a0dad; /* Purple color for icons */
-}
-
-/* Fix for resource card headings in light mode */
-body.light .resource-card h3 {
-  color: #333333; /* Dark heading text */
-}
-
-/* Fix for resource card text in light mode */
-body.light .resource-card p {
-  color: #555555; /* Dark gray text */
-}
-
-/* Fix for resource card buttons in light mode */
-body.light .resource-card .button {
-  background: #6a0dad; /* Purple background */
-  color: white; /* White text */
-}
-
-body.light .resource-card .button:hover {
-  background: #5a0b9a; /* Darker purple on hover */
-}
-
