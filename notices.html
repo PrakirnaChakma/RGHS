@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Notices - RGHS Refiners</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="shortcut icon" href="images/Website/purple-ribbon.png" type="image/x-icon"/>
+</head>
+<body>
+  <canvas id="dotmatrix"></canvas>
+
+  <header>
+    <nav>
+      <div class="logo">RGHS Refiners</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#contacts">Contacts</a></li>
+        <li><a href="notices.html">Notices</a></li>
+        <li><a href="index.html#resources">Resources</a></li>
+      </ul>
+      <button id="mode-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="notices">
+      <h2>All Notices</h2>
+
+      <!-- Simple toolbar -->
+      <div class="notice-controls" style="margin-bottom:1rem;">
+        <input id="notice-q" type="search" placeholder="Search notices..." style="padding:.6rem 1rem;border-radius:8px;border:1px solid var(--accent);max-width:260px;width:100%;"/>
+        <label style="margin-left:.5rem;display:inline-flex;align-items:center;gap:.4rem;">
+          <input type="checkbox" id="toggle-archived"/> Show archived
+        </label>
+      </div>
+
+      <div id="all-notice-list" class="notice-list"></div>
+
+      <div class="notice-controls" style="margin-top:2rem;">
+        <a class="download-btn" href="index.html">← Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
