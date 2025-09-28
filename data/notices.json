@@ -1,5 +1,15 @@
 [
   {
+    "id": "2025-09-28-tools",
+    "title": "🔢GPA Calculator",
+    "short": "A SSC GPA Calculator has been added on the resources tab.",
+    "full": "We have added a SSC GPA Calculator on the Resources section for science group students. <a href=\"resources/tools/GPA_calculator_science_RGHS_Refiners.html\">Calculator</a><p> The calculator will help students calculate their GPA easily. The calculator can also be downloaded locally so you can use it hassle free even WITHOUT INTERNET. </p> Whether you're tracking your progress or planning ahead, this tool is designed to make academic life a little easier. If you have any feedback or suggestions, feel free to reach out, we're always looking to improve! <p>Cheers! RGHS Refiners</p>",
+    "date": "2025-09-28",
+    "archived": false,
+    "tags": ["tools","math"]
+  },
+  
+  {
     "id": "2025-08-29-quiz",
     "title": "📑 RGHS Refiners - Higher Mathematics Quiz on Trigonometry",
     "short": "Higher Mathematics Quiz has been launched. Participate now! Link: <a href=\"https://form-timer.com/start/6cd590b7\" target=\"_blank\">Higher Math Quiz</a>",
