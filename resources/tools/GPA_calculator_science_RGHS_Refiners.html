@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Bangladesh SSC GPA Calculator for Science Group students" />
+  <meta name="theme-color" content="#2563EB" />
+  <title>SSC GPA Calculator (Bangladesh)</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+    
+    /* Prevent iOS zoom on input focus */
+    @media screen and (max-width: 768px) {
+      input, select {
+        font-size: 16px !important;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slideIn {
+      animation: slideIn 0.4s ease-out;
+    }
+
+    /* Hide elements by default */
+    .hidden {
+        display: none;
+    }
+    
+    /* Print styles */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printSection, #printSection * {
+        visibility: visible;
+      }
+      #printSection {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Main Application Wrapper -->
+  <div class="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+    
+    <!-- Popup Modal -->
+    <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div id="popup-content" class="bg-white p-6 rounded-lg shadow-xl max-w-md w-full animate-slideIn">
+        <h3 class="text-lg font-bold mb-4">Message</h3>
+        <p id="popup-message" class="text-xl mb-6"></p>
+        <div class="flex justify-end">
+          <button id="popup-ok-btn" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculator Card -->
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="bg-blue-600 p-6 text-white">
+        <h1 class="text-2xl font-bold text-center">SSC GPA Calculator (Bangladesh)</h1>
+        <p class="text-center mt-2">Science Group</p>
+      </div>
+
+      <div class="p-6">
+        <div class="mb-6">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-semibold">Enter Your Grades</h2>
+            <button id="toggle-grade-table-btn" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+              Show Grade Table
+            </button>
+          </div>
+
+          <!-- Grade Table Container -->
+          <div id="grade-table-container" class="hidden"></div>
+
+          <!-- Optional Subject Selection -->
+          <div class="mb-6 bg-blue-50 p-4 rounded-lg">
+            <h3 class="text-md font-semibold mb-3">Select Optional Subject</h3>
+            <div class="flex space-x-4">
+              <label class="inline-flex items-center">
+                <input type="radio" name="optionalSubject" value="biology" class="form-radio h-5 w-5 text-blue-600" checked>
+                <span class="ml-2 text-gray-700">Biology</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="optionalSubject" value="higher_math" class="form-radio h-5 w-5 text-blue-600">
+                <span class="ml-2 text-gray-700">Higher Mathematics</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Subjects Grid -->
+          <div id="subjects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Subject inputs will be dynamically inserted here -->
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex space-x-4 justify-center mt-8">
+          <button id="calculate-btn" class="px-6 py-3 rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Calculate GPA
+          </button>
+          <button id="reset-btn" class="px-6 py-3 rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+            Reset
+          </button>
+          <button id="print-btn" class="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 hidden">
+            Print Result
+          </button>
+        </div>
+
+        <!-- Result Section -->
+        <div id="result-section" class="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-200 animate-slideIn hidden">
+          <h3 class="text-lg font-semibold text-center mb-4">Your SSC GPA Result</h3>
+          <div class="text-center mb-4">
+            <span id="gpa-value" class="text-4xl font-bold text-blue-600"></span>
+            <div id="letter-grade" class="text-xl font-semibold mt-1"></div>
+            <div id="funny-message-result" class="mt-2 text-center text-orange-600 font-semibold text-lg"></div>
+          </div>
+          <div class="bg-white p-4 rounded-lg max-h-64 overflow-y-auto">
+            <h4 class="font-medium mb-2 text-gray-700">Calculation Details:</h4>
+            <ul id="calculation-details" class="space-y-1 text-sm text-gray-600">
+              <!-- Details will be inserted here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+        <p class="text-sm text-gray-500 text-center">
+          Note: This calculator follows the Bangladesh Education Board's grading system for SSC examinations. <br />
+          Bangla and English are counted as single subjects (combining 1st and 2nd papers). <br />
+          Optional subject points above 2.00 are added to the final GPA without increasing the subject count.<br />
+          <strong><b>RGHS Refiners</b></strong>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // This is an IIFE (Immediately Invoked Function Expression).
+    (() => {
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- DATA ---
+        const scienceSubjects = [
+          { id: 'bangla', name: 'Bangla (1st & 2nd Paper Combined)' },
+          { id: 'english', name: 'English (1st & 2nd Paper Combined)' },
+          { id: 'math', name: 'Mathematics' },
+          { id: 'physics', name: 'Physics' },
+          { id: 'chemistry', name: 'Chemistry' },
+          { id: 'biology', name: 'Biology' },
+          { id: 'higher_math', name: 'Higher Mathematics' },
+          { id: 'bgs', name: 'Bangladesh & Global Studies' },
+          { id: 'religion', name: 'Religious Studies' },
+          { id: 'ict', name: 'Information & Communication Technology' },
+        ];
+
+        const gradePoints = [
+          { grade: 'A+', point: 5.00, range: '80-100', color: 'bg-green-500' },
+          { grade: 'A', point: 4.00, range: '70-79', color: 'bg-green-400' },
+          { grade: 'A-', point: 3.50, range: '60-69', color: 'bg-green-300' },
+          { grade: 'B', point: 3.00, range: '50-59', color: 'bg-blue-400' },
+          { grade: 'C', point: 2.00, range: '40-49', color: 'bg-yellow-400' },
+          { grade: 'D', point: 1.00, range: '33-39', color: 'bg-orange-400' },
+          { grade: 'F', point: 0.00, range: '0-32', color: 'bg-red-500' },
+        ];
+
+        // --- STATE VARIABLES ---
+        let currentGpa = null;
+        let currentLetterGrade = '';
+        let currentCalculationDetails = [];
+        let currentPopupMessage = '';
+        let savedGrades = {};
+        let optionalSubjectId = 'biology'; // Initial optional subject
+
+        // --- DOM ELEMENTS ---
+        const subjectsGrid = document.getElementById('subjects-grid');
+        const gradeTableContainer = document.getElementById('grade-table-container');
+        const toggleGradeTableBtn = document.getElementById('toggle-grade-table-btn');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const printBtn = document.getElementById('print-btn');
+        const resultSection = document.getElementById('result-section');
+        const gpaValueEl = document.getElementById('gpa-value');
+        const letterGradeEl = document.getElementById('letter-grade');
+        const funnyMessageResultEl = document.getElementById('funny-message-result');
+        const calculationDetailsEl = document.getElementById('calculation-details');
+        const popup = document.getElementById('popup');
+        const popupContent = document.getElementById('popup-content');
+        const popupMessageEl = document.getElementById('popup-message');
+        const popupOkBtn = document.getElementById('popup-ok-btn');
+        const optionalSubjectRadios = document.querySelectorAll('input[name="optionalSubject"]');
+
+        // --- HELPER FUNCTIONS ---
+        const getGradePoint = (grade) => {
+          const gradeInfo = gradePoints.find(gp => gp.grade === grade);
+          return gradeInfo ? gradeInfo.point : 0;
+        };
+
+        const getLetterGrade = (gpa) => {
+          if (gpa === 5.00) return 'A+';
+          if (gpa >= 4.00) return 'A';
+          if (gpa >= 3.50) return 'A-';
+          if (gpa >= 3.00) return 'B';
+          if (gpa >= 2.00) return 'C';
+          if (gpa >= 1.00) return 'D';
+          return 'F';
+        };
+
+        const getFunnyMessage = (gpa) => {
+          if (gpa === 5) return "Very Impressive! Keep up the work and congrats!🎉";
+          if (gpa >= 4.70 && gpa < 5) return "Very close to GPA 5! Just a little more push!";
+          if (gpa >= 4.50 && gpa < 4.70) return "Close to GPA 5! Keep grinding and improving!";
+          if (gpa >= 3 && gpa < 4.50) return "Nice! there's room for improvements! Keep improving!";
+          if (gpa >= 2 && gpa < 3) return "Needs more focus! Work harder and focus more!";
+          return "Don't lose hope, try better next time and focus seriously!🚨";
+        };
+        
+        const showPopup = (message) => {
+            popupMessageEl.textContent = message;
+            popup.classList.remove('hidden');
+        };
+        
+        const hidePopup = () => {
+            popup.classList.add('hidden');
+        };
+
+        // --- RENDER FUNCTIONS ---
+        const renderGradeTable = () => {
+          const tableHTML = `
+            <div class="mb-6 bg-gray-50 p-4 rounded-lg animate-fadeIn">
+              <h3 class="text-md font-semibold mb-2">Bangladesh SSC Grading System</h3>
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-100">
+                    <tr>
+                      <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade</th>
+                      <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade Point</th>
+                      <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Marks Range</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    ${gradePoints.map(gp => `
+                      <tr>
+                        <td class="px-4 py-2 whitespace-nowrap">
+                          <span class="inline-block w-6 h-6 rounded-full ${gp.color} mr-2"></span>
+                          ${gp.grade}
+                        </td>
+                        <td class="px-4 py-2 whitespace-nowrap">${gp.point.toFixed(2)}</td>
+                        <td class="px-4 py-2 whitespace-nowrap">${gp.range}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          `;
+          gradeTableContainer.innerHTML = tableHTML;
+        };
+
+        const renderSubjects = () => {
+          let subjectsHTML = '';
+          scienceSubjects.forEach(subject => {
+            const isOptional = subject.id === optionalSubjectId;
+            subjectsHTML += `
+              <div id="subject-card-${subject.id}" class="p-4 rounded-lg ${isOptional ? 'bg-blue-50 border border-blue-200' : 'bg-gray-50'}">
+                <div class="flex justify-between items-center mb-3">
+                  <h3 class="text-md font-semibold">${subject.name}</h3>
+                  ${isOptional ? '<span class="optional-badge bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Optional</span>' : ''}
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Grade</label>
+                  <select id="grade-${subject.id}" class="subject-grade-select block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <option value="">Select Grade</option>
+                    ${gradePoints.map(gp => `<option value="${gp.grade}">${gp.grade} (${gp.point.toFixed(2)}) - ${gp.range}</option>`).join('')}
+                  </select>
+                </div>
+              </div>
+            `;
+          });
+          subjectsGrid.innerHTML = subjectsHTML;
+        };
+        
+        const updateOptionalSubjectDisplay = (newId, oldId) => {
+            if (newId === oldId) return;
+
+            const oldCard = document.getElementById(`subject-card-${oldId}`);
+            if (oldCard) {
+                oldCard.classList.remove('bg-blue-50', 'border', 'border-blue-200');
+                oldCard.classList.add('bg-gray-50');
+                const oldBadge = oldCard.querySelector('.optional-badge');
+                if (oldBadge) oldBadge.remove();
+            }
+
+            const newCard = document.getElementById(`subject-card-${newId}`);
+            if (newCard) {
+                newCard.classList.add('bg-blue-50', 'border', 'border-blue-200');
+                newCard.classList.remove('bg-gray-50');
+                const headerDiv = newCard.querySelector('.flex.justify-between');
+                if (headerDiv && !headerDiv.querySelector('.optional-badge')) {
+                    const newBadge = document.createElement('span');
+                    newBadge.className = 'optional-badge bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded';
+                    newBadge.textContent = 'Optional';
+                    headerDiv.appendChild(newBadge);
+                }
+            }
+        };
+
+
+        // --- MAIN LOGIC ---
+        const calculateGPA = () => {
+          const optionalSubject = document.querySelector('input[name="optionalSubject"]:checked').value;
+          const grades = {};
+          let allGradesSelected = true;
+
+          scienceSubjects.forEach(subject => {
+            const selectEl = document.getElementById(`grade-${subject.id}`);
+            if (selectEl.value === '') {
+              allGradesSelected = false;
+              showPopup(`Please select a grade for ${subject.name}`);
+            }
+            grades[subject.id] = selectEl.value;
+          });
+
+          if (!allGradesSelected) return;
+          
+          savedGrades = grades;
+
+          calculateBtn.disabled = true;
+          calculateBtn.textContent = 'Calculating...';
+          calculateBtn.classList.add('bg-blue-300', 'cursor-not-allowed');
+          calculateBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+
+          setTimeout(() => {
+            let totalPoints = 0;
+            let totalSubjects = 0;
+            let failedSubject = false;
+            const details = [];
+
+            scienceSubjects.forEach(subject => {
+              if (subject.id === optionalSubject) return;
+              const grade = grades[subject.id];
+              const subjectPoint = getGradePoint(grade);
+              if (subjectPoint === 0) failedSubject = true;
+              details.push(`${subject.name}: ${grade} (${subjectPoint.toFixed(2)})`);
+              totalPoints += subjectPoint;
+              totalSubjects++;
+            });
+
+            let calculatedGPA = 0;
+
+            if (failedSubject) {
+              calculatedGPA = 0;
+              details.push("Failed in one or more subjects. GPA is 0.");
+              currentLetterGrade = 'F';
+            } else {
+              const optionalSubjectName = scienceSubjects.find(s => s.id === optionalSubject)?.name || 'Optional Subject';
+              const optionalGrade = grades[optionalSubject];
+              const optionalPoint = getGradePoint(optionalGrade);
+
+              details.push(`Base total points (without optional): ${totalPoints.toFixed(2)}`);
+              details.push(`Optional subject (${optionalSubjectName}): ${optionalGrade} (${optionalPoint.toFixed(2)})`);
+
+              if (optionalPoint > 2) {
+                const extraPoints = optionalPoint - 2;
+                details.push(`Extra points from optional subject: ${extraPoints.toFixed(2)} (${optionalPoint.toFixed(2)} - 2.00)`);
+                details.push(`New total points (with optional extra): ${totalPoints.toFixed(2)} + ${extraPoints.toFixed(2)} = ${(totalPoints + extraPoints).toFixed(2)}`);
+                totalPoints += extraPoints;
+              } else {
+                details.push(`No extra points added (optional grade point ≤ 2.00)`);
+              }
+              
+              calculatedGPA = parseFloat((totalPoints / totalSubjects).toFixed(2));
+              details.push(`Final GPA: ${totalPoints.toFixed(2)} ÷ ${totalSubjects} = ${calculatedGPA.toFixed(2)}`);
+
+              if (calculatedGPA > 5) {
+                calculatedGPA = 5;
+                details.push("GPA capped at 5.00");
+              }
+              currentLetterGrade = getLetterGrade(calculatedGPA);
+            }
+
+            currentGpa = calculatedGPA;
+            currentCalculationDetails = details;
+            currentPopupMessage = getFunnyMessage(calculatedGPA);
+
+            gpaValueEl.textContent = currentGpa.toFixed(2);
+            letterGradeEl.textContent = currentLetterGrade;
+            funnyMessageResultEl.textContent = currentPopupMessage;
+            calculationDetailsEl.innerHTML = currentCalculationDetails.map(d => `<li>${d}</li>`).join('');
+            
+            resultSection.classList.remove('hidden');
+            printBtn.classList.remove('hidden');
+            
+            showPopup(currentPopupMessage);
+
+            calculateBtn.disabled = false;
+            calculateBtn.textContent = 'Calculate GPA';
+            calculateBtn.classList.remove('bg-blue-300', 'cursor-not-allowed');
+            calculateBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+          }, 500);
+        };
+
+        const resetForm = () => {
+          document.querySelectorAll('.subject-grade-select').forEach(select => select.value = '');
+          resultSection.classList.add('hidden');
+          printBtn.classList.add('hidden');
+          currentGpa = null;
+          currentLetterGrade = '';
+          currentCalculationDetails = [];
+          currentPopupMessage = '';
+          savedGrades = {};
+        };
+        
+        const printResult = () => {
+          if (currentGpa === null) return;
+          const printWindow = window.open('', '_blank');
+          if (!printWindow) return;
+          const resultHTML = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>SSC GPA Calculator Result - RGHS Refiners </title>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <style>
+                body { font-family: Arial, sans-serif; padding: 20px; } h1 { text-align: center; color: #1e40af; } .result { text-align: center; margin: 20px 0; }
+                .gpa { font-size: 36px; font-weight: bold; color: #1e40af; } .details { margin-top: 20px; } table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f2f2f2; }
+                .funny-message { font-style: italic; color: #d97706; margin-top: 10px; }
+              </style>
+            </head>
+            <body id="printSection">
+              <h1>SSC GPA Result (Science Group)</h1>
+              <div class="result">
+                <div class="gpa">GPA: ${currentGpa?.toFixed(2) || 'N/A'}</div> <div>Letter Grade: ${currentLetterGrade}</div>
+                <div class="funny-message">${currentPopupMessage}</div>
+              </div>
+              <div class="details">
+                <h2>Calculation Details:</h2> <ul>${currentCalculationDetails.map(detail => `<li>${detail}</li>`).join('')}</ul>
+              </div>
+              <table>
+                <tr><th>Subject</th><th>Grade</th><th>Status</th></tr>
+                ${scienceSubjects.map(subject => `
+                  <tr>
+                    <td>${subject.name}</td><td>${savedGrades[subject.id]}</td>
+                    <td>${subject.id === document.querySelector('input[name="optionalSubject"]:checked').value ? 'Optional' : 'Compulsory'}</td>
+                  </tr>`).join('')}
+              </table>
+            </body>
+            </html>`;
+          printWindow.document.open();
+          printWindow.document.write(resultHTML);
+          printWindow.document.close();
+          printWindow.print();
+        };
+
+        // --- EVENT LISTENERS ---
+        toggleGradeTableBtn.addEventListener('click', () => {
+          const isHidden = gradeTableContainer.classList.toggle('hidden');
+          toggleGradeTableBtn.textContent = isHidden ? 'Show Grade Table' : 'Hide Grade Table';
+        });
+
+        calculateBtn.addEventListener('click', calculateGPA);
+        resetBtn.addEventListener('click', resetForm);
+        printBtn.addEventListener('click', printResult);
+        popupOkBtn.addEventListener('click', hidePopup);
+        
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) hidePopup();
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !popup.classList.contains('hidden')) hidePopup();
+        });
+
+        optionalSubjectRadios.forEach(radio => {
+          radio.addEventListener('change', (event) => {
+              const newOptionalId = event.target.value;
+              updateOptionalSubjectDisplay(newOptionalId, optionalSubjectId);
+              optionalSubjectId = newOptionalId;
+          });
+        });
+
+        // --- INITIALIZATION ---
+        optionalSubjectId = document.querySelector('input[name="optionalSubject"]:checked').value;
+        renderGradeTable();
+        renderSubjects();
+      });
+    })(); // The IIFE is closed and executed here.
+  </script>
+</body>
+</html>
