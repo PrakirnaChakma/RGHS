@@ -365,4 +365,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggle-contacts');
+  const contactsList = document.getElementById('contacts-list');
+
+  if (toggleBtn && contactsList) {
+    toggleBtn.addEventListener('click', () => {
+      const expanded = contactsList.classList.toggle('expanded');
+      contactsList.classList.toggle('collapsed', !expanded);
+      toggleBtn.textContent = expanded ? "Hide All Contacts ▲" : "Show All Contacts ▼";
+    });
+  }
+});
+
 
