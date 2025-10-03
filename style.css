@@ -71,7 +71,7 @@ body.light .logo-light { display: inline; }
 .logo span {
   margin-left: 8px;
   font-weight: bold;
-  font-size: 1.5rem; /* match your design */
+  font-size: 1.5rem;
   vertical-align: middle;
 }
 
@@ -897,4 +897,3 @@ body.light .update-item {
   .update-item { flex-direction: column; gap: 0.5rem; }
   .update-date { align-self: flex-start; }
 }
-
