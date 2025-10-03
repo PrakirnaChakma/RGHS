@@ -48,10 +48,34 @@ nav {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--accent);
 }
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Default: (dark mode) */
+.logo-dark { display: inline; vertical-align: middle; }
+.logo-light { display: none; vertical-align: middle; }
+
+/* Light mode */
+body.light .logo-dark { display: none; }
+body.light .logo-light { display: inline; }
+
+/* Ensure text aligns nicely */
+.logo span {
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 1.5rem; /* match your design */
+  vertical-align: middle;
+}
+
+
 
 .nav-links {
   list-style: none;
@@ -86,13 +110,13 @@ nav {
 }
 
 .intro h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
   color: var(--accent);
 }
 
 .intro p {
-  font-size: 1.2rem;
+  font-size: 1.01rem;
   opacity: 0.8;
 }
 
@@ -110,7 +134,7 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* Default desktop (already 3+ per row probably) */
+/* Default desktop */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
