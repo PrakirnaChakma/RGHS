@@ -137,10 +137,33 @@ body.light .logo-light { display: inline; }
 }
 
 .contacts p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.8;
   text-align: left;
   max-width: fit-content;
+}
+
+.contacts p strong {
+  font-size: 0.8rem;
+  opacity: 1;
+  text-align: left;
+  max-width: fit-content;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .contacts p {
+    font-size: 0.6rem;
+    opacity: 0.8;
+    text-align: left;
+    max-width: fit-content;
+  }
+
+  .contacts strong {
+    font-size: 0.7rem;
+    opacity: 1;
+    text-align: left;
+    max-width: fit-content;
+  }
 }
 
 /* Default desktop */
@@ -164,24 +187,23 @@ body.light .logo-light { display: inline; }
   backdrop-filter: blur(4px);
 }
 
-/* ======= Restore contact "View more" styles ======= */
 /* keeps the extra-info text gray, removes default bullets, and makes links purple */
 .extra-info {
   color: #ccc;
 }
 
 .extra-info ul {
-  list-style: none;       /* remove bullets introduced by browser default */
+  list-style: none;/* remove bullets introduced by browser default */
   padding: 0;
   margin-top: 0.5rem;
 }
 
 .extra-info ul li {
   margin-bottom: 0.4rem;
-  list-style: none;       /* extra safety */
+  list-style: none;/* extra safety */
 }
 
-/* links inside the extra-info (e.g., "Most available on:", contact links) */
+/* links inside the extra-info */
 .extra-info a {
   color: var(--accent);
   text-decoration: none;
@@ -281,7 +303,7 @@ body.light .contact-card .extra-info {
   color: #ffffff;
 }
 
-/* ========== CONTACTS COLLAPSE/EXPAND ========== */
+/* CONTACTS COLLAPSE/EXPAND */
 
 /* Button styling */
 .expand-btn {
@@ -340,14 +362,157 @@ body.light .contact-card .extra-info {
   background: transparent;
 }
 
-
-
 /* Expanded full list */
 #contacts-list.expanded {
   max-height: 100%;
   transition: max-height 0.3s ease-in;
 }
 
+/* MOBILE-OPTIMIZED CONTACT GRID */
+@media (max-width: 768px) {
+  /* Grid: 2 columns */
+  #contacts-list.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Contact cards smaller & compact */
+  #contacts-list .contact-card {
+    background-color: rgba(35, 35, 55, 0.9);
+    border-radius: 12px;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+    transition: transform 0.2s ease;
+  }
+
+  /* compact avatar */
+  #contacts-list .contact-card .avatar {
+    width: 85px;
+    height: 85px;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+  }
+
+  #contacts-list .contact-card h3 {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+
+  #contacts-list .contact-card p {
+    font-size: 0.72rem;
+    line-height: 1.1;
+    margin: 0.3rem 0;
+  }
+
+  /* smaller social icons */
+  #contacts-list .social-links {
+    gap: 0.5rem;
+  }
+
+  #contacts-list .social-links a {
+    font-size: 1rem;
+  }
+
+  /* smaller toggle button */
+  #contacts-list .toggle-info {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  /* expand button*/
+  .expand-btn {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+}
+
+/* Extra-small devices: single column layout */
+@media (max-width: 320px) {
+  #contacts-list.contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* expanded info */
+@media (max-width: 768px) {
+  /* shrink extra info text & prevent overflow */
+  #contacts-list .contact-card .extra-info {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    text-align: left;
+    margin-top: 0.5rem;
+    padding: 0 0.2rem;
+  }
+
+  /* smaller links & icons inside extra-info */
+  #contacts-list .contact-card .extra-info a {
+    font-size: 0.7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  #contacts-list .contact-card .extra-info i {
+    font-size: 0.8rem;
+  }
+
+  /* tighter list structure */
+  #contacts-list .contact-card .extra-info ul {
+    padding-left: 0;
+    margin: 0.3rem 0;
+  }
+
+  #contacts-list .contact-card .extra-info li {
+    margin-bottom: 0.25rem;
+  }
+
+  /* stop horizontal scrolling on long lines */
+  #contacts-list .contact-card {
+    overflow-x: hidden;
+    word-wrap: break-word;
+  }
+}
+
+/* Light mode */
+body.light #contacts-list .contact-card {
+  background-color: #f9f9ff;
+  border: 1px solid rgba(160, 160, 200, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  color: #222;
+}
+
+body.light #contacts-list .contact-card h3 {
+  color: #333;
+}
+
+body.light #contacts-list .contact-card p,
+body.light #contacts-list .contact-card .extra-info {
+  color: #444;
+}
+
+body.light #contacts-list .contact-card .toggle-info {
+  background-color: var(--accent);
+  color: white;
+}
+
+body.light #contacts-list .contact-card .social-links a,
+body.light #contacts-list .contact-card .extra-info a {
+  color: var(--accent);
+}
+
+body.light #contacts-list .contact-card .social-links a:hover,
+body.light #contacts-list .contact-card .extra-info a:hover {
+  color: #6a0dad;
+}
 
 /* NOTICES */
 .notices {
@@ -389,6 +554,10 @@ body.light .contact-card .extra-info {
   margin: 0.5rem 0 0.8rem 0;
   font-size: 1rem;
   opacity: 0.9;
+}
+
+.notice-card a {
+ color: violet; /* link */
 }
 
 .notice-date {
@@ -450,6 +619,30 @@ body.light .notice-card .full-desc {
   color: #333333;
 }
 
+@media (max-width:768px) {
+  .notice-card {
+    font-size: 0.8rem;
+  }
+  .notice-card p {
+    font-size: 0.8rem;
+  }
+
+  .notice-card a {
+    font-size: 0.8rem;
+    color: violet /*link*/;
+    text-align: justify;
+    width: fit-content;
+    max-width: fit-content;
+    display: flex;
+  }
+
+  .notice-card h3 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+}
+  
 /* RESOURCES */
 .resources {
   max-width: 1000px;
@@ -906,4 +1099,3 @@ body.light .update-item {
   .update-item { flex-direction: column; gap: 0.5rem; }
   .update-date { align-self: flex-start; }
 }
-
