@@ -120,6 +120,9 @@ body.light .logo-light { display: inline; }
   opacity: 0.8;
 }
 
+.intro a {
+  color: var(--accent);
+}
 /* CONTACTS */
 .contacts {
   max-width: 1100px;
@@ -187,7 +190,6 @@ body.light .logo-light { display: inline; }
   backdrop-filter: blur(4px);
 }
 
-/* keeps the extra-info text gray, removes default bullets, and makes links purple */
 .extra-info {
   color: #ccc;
 }
